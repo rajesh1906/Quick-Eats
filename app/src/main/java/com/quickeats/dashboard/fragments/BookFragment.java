@@ -1,0 +1,58 @@
+package com.quickeats.dashboard.fragments;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TableLayout;
+
+import com.quickeats.R;
+import com.quickeats.utils.ViewPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
+/**
+ * Created by Rajesh kumar on 22-06-2018.
+ */
+
+public class BookFragment extends Fragment {
+    View view;
+    @BindView(R.id.tabs)
+    TabLayout tabs;
+    @BindView(R.id.viewpager)
+    ViewPager viewpager;
+    public static BookFragment newInstance() {
+        BookFragment fragment = new BookFragment();
+        return fragment;
+    }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        view = inflater.inflate(R.layout.bookfragment,container,false);
+        ButterKnife.bind(this,view);
+        setupViewPager(viewpager);
+        tabs.setupWithViewPager(viewpager);
+        viewpager.setOffscreenPageLimit(2);
+
+        return view;
+    }
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
+        adapter.addFragment(new EatsInFragment(), "EAT IN");
+        adapter.addFragment(new Collections(), "COLLECTION");
+        viewPager.setAdapter(adapter);
+    }
+
+}
