@@ -1,5 +1,6 @@
 package com.quickeats.dashboard.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,7 @@ import android.view.ViewGroup;
 import com.quickeats.R;
 import com.quickeats.dashboard.adapter.RestaurentAdapter;
 import com.quickeats.restaurantdetail.LoadFragment;
-import com.quickeats.restaurantdetail.RestaurentDetailFragment;
+import com.quickeats.restaurantdetail.RestaurentActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,8 +45,7 @@ public class EatsInFragment extends Fragment implements LoadFragment {
 
     @Override
     public void load() {
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        fm.beginTransaction().add(R.id.bookfragmentcontianer,new RestaurentDetailFragment())
-                .addToBackStack(TAG).commit();
+
+        startActivity(new Intent(getActivity(), RestaurentActivity.class));
     }
 }

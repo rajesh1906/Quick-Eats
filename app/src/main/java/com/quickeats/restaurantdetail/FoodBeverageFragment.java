@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.quickeats.R;
 import com.quickeats.dashboard.adapter.RestaurentAdapter;
+import com.quickeats.restaurantdetail.adapter.FoodBeverageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +20,11 @@ import butterknife.ButterKnife;
  * Created by Rajesh kumar on 27-06-2018.
  */
 
-public class FoodBeverageFragment extends Fragment {
+public class FoodBeverageFragment extends Fragment implements LoadFragment {
+    public static FoodBeverageFragment newInstance() {
+        FoodBeverageFragment fragment = new FoodBeverageFragment();
+        return fragment;
+    }
     View mView;
     @BindView(R.id.recyclerview)
     RecyclerView mrecyclerView;
@@ -30,7 +35,12 @@ public class FoodBeverageFragment extends Fragment {
         mView = inflater.inflate(R.layout.commonrecyclerview,container,false);
         ButterKnife.bind(this,mView);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mrecyclerView.setAdapter(new RestaurentAdapter(FoodBeverageFragment.this));
+        mrecyclerView.setAdapter(new FoodBeverageAdapter(FoodBeverageFragment.this));
         return mView;
+    }
+
+    @Override
+    public void load() {
+
     }
 }

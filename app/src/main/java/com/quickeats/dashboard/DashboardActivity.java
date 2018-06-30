@@ -19,6 +19,7 @@ import com.quickeats.dashboard.fragments.OffersFragment;
 import com.quickeats.dashboard.fragments.OrderFragment;
 import com.quickeats.dashboard.fragments.ProfileFragment;
 import com.quickeats.dashboard.fragments.ScanFragment;
+import com.quickeats.restaurantdetail.FoodBeverageFragment;
 import com.quickeats.utils.DialogManage;
 
 import butterknife.BindView;
@@ -70,7 +71,7 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage {
                                 selectedFragment = BookFragment.newInstance();
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = OrderFragment.newInstance();
+                                selectedFragment = FoodBeverageFragment.newInstance();
                                 break;
                             case R.id.action_item3:
                                 selectedFragment = ScanFragment.newInstance();

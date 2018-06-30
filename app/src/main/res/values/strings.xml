@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Quick Eats</string>
+
+    <string-array name="food_types">
+        <item>South Indian</item>
+        <item>Andra Style</item>
+        <item>North Indian</item>
+        <item>Chinese Food</item>
+        <item> Cajun Food</item>
+        <item>Thai Food</item>
+        <item>Greek Cuisine</item>
+    </string-array>
 </resources>

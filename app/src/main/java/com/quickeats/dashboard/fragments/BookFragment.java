@@ -32,6 +32,7 @@ public class BookFragment extends Fragment {
     TabLayout tabs;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
+    boolean shown;
     public static BookFragment newInstance() {
         BookFragment fragment = new BookFragment();
         return fragment;
@@ -42,12 +43,25 @@ public class BookFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.bookfragment,container,false);
         ButterKnife.bind(this,view);
-        setupViewPager(viewpager);
-        tabs.setupWithViewPager(viewpager);
-        viewpager.setOffscreenPageLimit(2);
+        if(!shown) {
+            shown = true;
+            setupViewPager(viewpager);
+            tabs.setupWithViewPager(viewpager);
+        }
 
         return view;
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser){
+            shown=false;
+            setupViewPager(viewpager);
+            tabs.setupWithViewPager(viewpager);
+        }
+    }
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
         adapter.addFragment(new EatsInFragment(), "EAT IN");
