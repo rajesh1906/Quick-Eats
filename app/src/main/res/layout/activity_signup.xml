@@ -192,6 +192,7 @@
                             <!--android:textColor="@color/colorPrimaryDark"-->
                             <!--android:textSize="@dimen/text_size_14"/>-->
                         <TextView
+                            android:id="@+id/txtsignin"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

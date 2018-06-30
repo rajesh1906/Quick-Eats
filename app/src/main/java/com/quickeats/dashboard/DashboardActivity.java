@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
@@ -61,6 +62,9 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage {
     }
 
     public void initilizeViews(){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, BookFragment.newInstance());
+        transaction.commit();
         mbottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -69,31 +73,36 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage {
                         switch (item.getItemId()) {
                             case R.id.action_item1:
                                 selectedFragment = BookFragment.newInstance();
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.replace(R.id.frame_layout, selectedFragment);
+                                transaction.commit();
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = FoodBeverageFragment.newInstance();
+                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+//                                selectedFragment = FoodBeverageFragment.newInstance();
                                 break;
                             case R.id.action_item3:
-                                selectedFragment = ScanFragment.newInstance();
+                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+//                                selectedFragment = ScanFragment.newInstance();
                                 break;
                             case R.id.action_item4:
-                                selectedFragment = OffersFragment.newInstance();
+                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+//                                selectedFragment = OffersFragment.newInstance();
                                 break;
                             case R.id.action_item5:
-                                selectedFragment = ProfileFragment.newInstance();
+                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+//                                selectedFragment = ProfileFragment.newInstance();
                                 break;
                         }
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, selectedFragment);
-                        transaction.commit();
+
                         return true;
                     }
                 });
 
         //Manually displaying the first fragment - one time only
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, BookFragment.newInstance());
-        transaction.commit();
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.frame_layout, BookFragment.newInstance());
+//        transaction.commit();
     }
 
     @OnClick(R.id.ll_booking)
