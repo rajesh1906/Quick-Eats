@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.quickeats.R;
 import com.quickeats.dashboard.adapter.RestaurentAdapter;
 import com.quickeats.dashboard.fragments.EatsInFragment;
 import com.quickeats.restaurantdetail.FoodBeverageFragment;
+import com.quickeats.restaurantdetail.LoadFragment;
 
 /**
  * Created by Rajesh kumar on 30-06-2018.
@@ -19,6 +22,7 @@ import com.quickeats.restaurantdetail.FoodBeverageFragment;
 public class FoodBeverageAdapter extends RecyclerView.Adapter<FoodBeverageAdapter.MyViewHolder> {
 
     Fragment fragment;
+    int mCount=0;
 
     public FoodBeverageAdapter(Fragment fragment) {
         this.fragment = fragment;
@@ -26,11 +30,13 @@ public class FoodBeverageAdapter extends RecyclerView.Adapter<FoodBeverageAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        RelativeLayout relItem;
+        LinearLayout llcontrol;
+        Button btnadd ;
 
         public MyViewHolder(View view) {
             super(view);
-            relItem = view.findViewById(R.id.relItem);
+            btnadd = (Button)view.findViewById(R.id.btnadd);
+            llcontrol = view.findViewById(R.id.llcontrol);
 
         }
     }
@@ -45,13 +51,18 @@ public class FoodBeverageAdapter extends RecyclerView.Adapter<FoodBeverageAdapte
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-//        holder.relItem.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ((FoodBeverageFragment) fragment).load();
-//            }
-//        });
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+
+        holder.btnadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 mCount++;
+                holder.btnadd.setVisibility(View.GONE);
+                holder.llcontrol.setVisibility(View.VISIBLE);
+                LoadFragment.ImplItems implItems = (LoadFragment.ImplItems)fragment;
+                implItems.getItemPosition(mCount);
+            }
+        });
     }
 
     @Override

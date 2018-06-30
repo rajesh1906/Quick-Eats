@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.quickeats.R;
 import com.quickeats.dashboard.adapter.RestaurentAdapter;
@@ -20,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by Rajesh kumar on 27-06-2018.
  */
 
-public class FoodBeverageFragment extends Fragment implements LoadFragment {
+public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplItems {
     public static FoodBeverageFragment newInstance() {
         FoodBeverageFragment fragment = new FoodBeverageFragment();
         return fragment;
@@ -28,6 +30,7 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment {
     View mView;
     @BindView(R.id.recyclerview)
     RecyclerView mrecyclerView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,8 +42,10 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment {
         return mView;
     }
 
-    @Override
-    public void load() {
 
+    @Override
+    public void getItemPosition(int position) {
+        LoadFragment.ImplItems implItems = (LoadFragment.ImplItems)RestaurentActivity.instance;
+        implItems.getItemPosition(position);
     }
 }
