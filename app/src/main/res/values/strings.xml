@@ -1,10 +1,23 @@
 <resources>
     <string name="app_name">Quick Eats</string>
+<<<<<<< HEAD
     <string name="checkoutheader">Checkout</string>
     <string name="chooseservicetype">Choose Service Type</string>
     <string name="tableserrvice">Table Service - Order will be sent to your table</string>
     <string name="tablenumber">Please Enter Your Table Number</string>
     <string name="selfservice">Self Service - I will collect the order from the counter</string>
+=======
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="str_login">LOGIN</string>
+    <string name="str_submit">Submit</string>
+    <string name="str_singup">Signup</string>
+    <string name="str_forgot_pwd">Forgot Password?</string>
+    <string name="str_fname">First Name</string>
+    <string name="str_lname">Last Name</string>
+    <string name="str_phone">Phone Number</string>
+
+>>>>>>> e62e81c5e3c804debc5a90531008063e8f45e422
 
     <string-array name="food_types">
         <item>South Indian</item>

@@ -11,5 +11,13 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
+    <style name="TextAppearance.FontPathRegular" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <!--<item name="fontPath">fonts/Roboto-Regular.ttf</item>-->
+    </style>
 
+    <style name="TextAppearance.FontPathBold" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <!--<item name="fontPath">fonts/Roboto-Bold.ttf</item>-->
+    </style>
 </resources>

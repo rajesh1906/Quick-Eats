@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="app_bar_height">200dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_drawer_width">260dp</dimen>
+    <dimen name="actionbar_height">56dp</dimen>
+
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="edt_padding">8dp</dimen>
+    <dimen name="edt_margin">16dp</dimen>
+    <dimen name="sliding_menu_width">80dp</dimen>
+
+    <dimen name="margin_one">1dp</dimen>
+    <dimen name="margin_two">2dp</dimen>
+    <dimen name="margin_five">5dp</dimen>
+    <dimen name="margin_ten">10dp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+
+    <dimen name="margin_fifteen">15dp</dimen>
+    <dimen name="margin_twenty">20dp</dimen>
+    <dimen name="margin_thirty">30dp</dimen>
+    <dimen name="margin_fourty">40dp</dimen>
+    <dimen name="margin_fifty">60dp</dimen>
+    <dimen name="margin_ten_negative">-10dp</dimen>
+    <dimen name="margin_twenty_negative">-20dp</dimen>
+    <dimen name="margin_five_negative">-5dp</dimen>
+
+
+
+    <!--signin screen dimensions-->
+    <dimen name="back_arrow_padding">16dp</dimen>
+    <dimen name="signin_bottom_bar_height">40dp</dimen>
+    <dimen name="signin_layout_height">35dp</dimen>
+    <dimen name="email_text_height">35dp</dimen>
+    <dimen name="af_spn_vertical_offset">35dp</dimen>
+    <dimen name="pwd_padding">17dp</dimen>
+    <dimen name="email_txt_size">16sp</dimen>
+    <dimen name="btn_next_padding">10dp</dimen>
+    <dimen name="btn_next_width">150dp</dimen>
 </resources>
