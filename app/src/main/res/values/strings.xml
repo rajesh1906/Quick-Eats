@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Quick Eats</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="str_login">LOGIN</string>
+    <string name="str_submit">Submit</string>
+    <string name="str_singup">Signup</string>
+    <string name="str_forgot_pwd">Forgot Password?</string>
+    <string name="str_fname">First Name</string>
+    <string name="str_lname">Last Name</string>
+    <string name="str_phone">Phone Number</string>
+
 
     <string-array name="food_types">
         <item>South Indian</item>
