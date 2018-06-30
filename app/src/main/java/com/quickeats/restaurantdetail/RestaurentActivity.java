@@ -1,6 +1,7 @@
 package com.quickeats.restaurantdetail;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -13,12 +14,14 @@ import android.widget.Toast;
 
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
+import com.quickeats.checkout.CheckoutActivity;
 import com.quickeats.dashboard.fragments.ProfileFragment;
 import com.quickeats.restaurantdetail.LoadFragment.ImplItems;
 import com.quickeats.utils.ViewPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Rajesh kumar on 28-06-2018.
@@ -59,6 +62,11 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
         adapter.addFragment(new FoodBeverageFragment(), "Drinks");
         adapter.addFragment(new FoodBeverageFragment(), "Desserts");
         viewPager.setAdapter(adapter);
+    }
+
+    @OnClick(R.id.lladdeditems)
+     void checkOutItems(){
+        startActivity(new Intent(this, CheckoutActivity.class));
     }
 
 

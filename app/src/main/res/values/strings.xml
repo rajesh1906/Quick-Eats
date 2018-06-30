@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Quick Eats</string>
+    <string name="checkoutheader">Checkout</string>
+    <string name="chooseservicetype">Choose Service Type</string>
+    <string name="tableserrvice">Table Service - Order will be sent to your table</string>
+    <string name="tablenumber">Please Enter Your Table Number</string>
+    <string name="selfservice">Self Service - I will collect the order from the counter</string>
 
     <string-array name="food_types">
         <item>South Indian</item>
