@@ -18,6 +18,13 @@
     <string name="str_phone">Phone Number</string>
     <string name="applycoupon">APPLY COUPON</string>
     <string name="selectpayment">Select Payment Method</string>
+    <string name="sort">Sort</string>
+    <string name="mostpopular">Most Popular</string>
+    <string name="rating">Rating</string>
+    <string name="preparation">Preparation Time</string>
+    <string name="distance">Distance</string>
+    <string name="price">Price</string>
+    <string name="done">DONE</string>
 
     <string-array name="food_types">
         <item>South Indian</item>

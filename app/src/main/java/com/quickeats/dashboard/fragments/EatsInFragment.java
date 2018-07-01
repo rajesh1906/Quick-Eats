@@ -10,14 +10,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.quickeats.R;
+import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.dashboard.adapter.RestaurentAdapter;
 import com.quickeats.restaurantdetail.LoadFragment;
 import com.quickeats.restaurantdetail.RestaurentActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Rajesh kumar on 24-06-2018.
@@ -27,6 +30,8 @@ public class EatsInFragment extends Fragment implements LoadFragment {
     View mView;
     @BindView(R.id.recyclerview)
     RecyclerView mrecyclerView;
+
+
     private static String TAG = EatsInFragment.class.getName();
     public static OffersFragment newInstance() {
         OffersFragment fragment = new OffersFragment();
@@ -41,6 +46,13 @@ public class EatsInFragment extends Fragment implements LoadFragment {
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
         return mView;
+    }
+
+    @OnClick (R.id.imgSettings)
+    void settingClick(){
+        LoadFragment.UpdateItem updateItem = (LoadFragment.UpdateItem) DashboardActivity.instance;
+        updateItem.getItem();
+
     }
 
     @Override

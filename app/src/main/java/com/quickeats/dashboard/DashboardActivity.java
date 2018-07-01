@@ -1,14 +1,18 @@
 package com.quickeats.dashboard;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -21,6 +25,7 @@ import com.quickeats.dashboard.fragments.OrderFragment;
 import com.quickeats.dashboard.fragments.ProfileFragment;
 import com.quickeats.dashboard.fragments.ScanFragment;
 import com.quickeats.restaurantdetail.FoodBeverageFragment;
+import com.quickeats.restaurantdetail.LoadFragment;
 import com.quickeats.utils.DialogManage;
 
 import butterknife.BindView;
@@ -32,12 +37,13 @@ import butterknife.OnClick;
  * Created by Rajesh kumar on 22-06-2018.
  */
 
-public class DashboardActivity extends MvpBaseActivity implements DialogManage {
+public class DashboardActivity extends MvpBaseActivity implements DialogManage,LoadFragment.UpdateItem {
 
     DashboardPresenter presenter;
     @BindView(R.id.navigation)
     BottomNavigationView mbottomNavigationView;
-
+    BottomSheetDialog mBottomSheetDialog;
+    public static Activity instance;
     @Override
     public int getLayout() {
         return R.layout.activity_main;
@@ -49,6 +55,22 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage {
         ButterKnife.bind(this);
         presenter = new DashboardImp(this);
         presenter.initialSetUp();
+        instance = this;
+        implementBottomSheet();
+    }
+
+    //implement bottom sheet
+    private void implementBottomSheet(){
+        mBottomSheetDialog = new BottomSheetDialog(this);
+        View sheetView = getLayoutInflater().inflate(R.layout.settingslayout, null);
+        ImageView imgcancel = sheetView.findViewById(R.id.imgcancel);
+        mBottomSheetDialog.setContentView(sheetView);
+        imgcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBottomSheetDialog.dismiss();
+            }
+        });
     }
 
     @Override
@@ -129,5 +151,10 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage {
     @OnClick(R.id.rel_scan)
      void scaningImpl(){
         mbottomNavigationView.setSelectedItemId(R.id.action_item3);
+    }
+
+    @Override
+    public void getItem() {
+        mBottomSheetDialog.show();
     }
 }

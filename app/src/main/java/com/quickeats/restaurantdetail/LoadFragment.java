@@ -10,7 +10,8 @@ public interface LoadFragment {
         void getItemPosition(int position);
     }
     interface UpdateItem{
-        int getItem();
+        void getItem();
     }
+
 
 }
