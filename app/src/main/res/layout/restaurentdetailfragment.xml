@@ -119,6 +119,7 @@
                 android:layout_height="80dp">
 
                 <TextView
+                    android:id="@+id/txtordertype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -133,6 +134,7 @@
                     android:text="\t\t\t35 Mins\nPreperation Time" />
 
                 <TextView
+                    android:id="@+id/txtmap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -190,13 +192,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right">
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatmenu"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="60dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/foodorder_gray"
+            android:src="@drawable/menu"
             app:backgroundTint="@color/white" />
     </FrameLayout>
     <LinearLayout

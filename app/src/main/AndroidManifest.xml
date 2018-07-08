@@ -36,6 +36,8 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".restaurantinfo.RestaurentInfo"
+            android:screenOrientation="portrait"/>
         <activity android:name=".dashboard.Sample">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->

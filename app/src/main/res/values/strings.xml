@@ -25,6 +25,9 @@
     <string name="distance">Distance</string>
     <string name="price">Price</string>
     <string name="done">DONE</string>
+    <string name="cacel">Cancel</string>
+    <string name="yourorderstatus">Your Order Status</string>
+    <string name="info">Info</string>
 
     <string-array name="food_types">
         <item>South Indian</item>
@@ -34,5 +37,19 @@
         <item> Cajun Food</item>
         <item>Thai Food</item>
         <item>Greek Cuisine</item>
+    </string-array>
+    <string-array name="filternames">
+        <item>Your Faviourates</item>
+        <item>Andhra Specials</item>
+        <item>Mustard Brands</item>
+        <item>Stretch-Curd Cheeses</item>
+        <item>Hyderabad Dum Biryanies</item>
+        <item>Pasta Dishes</item>
+    </string-array>
+    <string-array name="infotimings">
+        <item>Sunday</item>
+        <item>Monday - Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
     </string-array>
 </resources>
