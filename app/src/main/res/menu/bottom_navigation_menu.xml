@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fontPath="http://schemas.android.com/tools"
+    fontPath:ignore="MissingPrefix">
     <item
         android:id="@+id/action_item1"
         android:icon="@drawable/ic_account_box_black_24dp"
-        android:title="Book"/>
+        android:title="Book"
+        fontPath="SourceSansPro-Regular.ttf"
+         />
     <item
         android:id="@+id/action_item2"
         android:icon="@drawable/ic_account_box_black_24dp"
-        android:title="Order"/>
+        android:title="Order"
+        fontPath="SourceSansPro-Regular.ttf"/>
     <item
         android:id="@+id/action_item3"
         android:icon="@drawable/ic_account_box_black_24dp"
-        android:title="Scan"/>
+        android:title="Scan"
+        fontPath="SourceSansPro-Regular.ttf"/>
     <item
         android:id="@+id/action_item4"
         android:icon="@drawable/ic_account_box_black_24dp"
-        android:title="Offers"/>
+        android:title="Offers"
+        fontPath="SourceSansPro-Regular.ttf"/>
     <item
         android:id="@+id/action_item5"
         android:icon="@drawable/ic_account_box_black_24dp"
-        android:title="Profile"/>
+        android:title="Profile"
+        fontPath="SourceSansPro-Regular.ttf"/>
 </menu>

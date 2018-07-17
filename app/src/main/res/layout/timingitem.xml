@@ -5,28 +5,22 @@
 
     <TextView
         android:id="@+id/txtweekday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Item"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        style="@style/TextStyleLarge.Bold.gray"/>
     <TextView
         android:id="@+id/txtenditem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:textStyle="normal"
         android:textSize="15sp"
         android:text="12:00am"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
+        style="@style/TextStyleLarge.Regular.gray"
         />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="1:00 am -"
         android:layout_toLeftOf="@+id/txtenditem"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"/>
+        android:paddingRight="10dp"
+        style="@style/TextStyleLarge.Regular.gray"/>
 </RelativeLayout>

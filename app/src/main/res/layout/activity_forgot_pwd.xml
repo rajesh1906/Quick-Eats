@@ -111,7 +111,6 @@
                 <TextView
                     android:id="@+id/tv_next"
                     android:layout_width="@dimen/btn_next_width"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:background="@drawable/rounded_btn_for_signin"
                     android:gravity="center"
@@ -119,7 +118,7 @@
                     android:textAllCaps="true"
                     android:text="Submit"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    style="@style/TextStyleLarge.Bold"/>
             </FrameLayout>
         </FrameLayout>
     </LinearLayout>

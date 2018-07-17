@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
     <ImageView
         android:id="@+id/imgBanner"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:background="@drawable/foodicon"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextStyleLarge.Bold"
         android:layout_marginLeft="20dp"
         android:text="Sort Restaurants"
-        android:textSize="14sp"
-        android:textStyle="bold"
         android:layout_below="@+id/imgBanner"
         android:layout_marginTop="20dp"
-        android:textColor="@color/gray"/>
+       />
     <ImageView
         android:id="@+id/imgSettings"
         android:layout_width="wrap_content"

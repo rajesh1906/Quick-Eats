@@ -35,34 +35,28 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/restaurent" />
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
                     android:text="Alkhaleej (4km)"
                     android:layout_above="@+id/txtplace"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
                     android:paddingBottom="10dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    style="@style/TextStyleLarge.Bold.white"/>
                 <TextView
                     android:id="@+id/txtplace"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_above="@+id/txt_rate"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
                     android:text="Tacos Chukis - Seattle Washington"
                     android:textSize="11dp"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    style="@style/TextStyleLarge.Regular.white"/>
                 <TextView
                     android:id="@+id/txt_rate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="4.5(100+)"
-                    android:textColor="@color/white"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="30dp"
-                    android:layout_centerHorizontal="true"/>
+                    android:layout_centerHorizontal="true"
+                    style="@style/TextStyleLarge.Regular.white"/>
             </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
@@ -120,28 +114,27 @@
 
                 <TextView
                     android:id="@+id/txtordertype"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:drawableTop="@drawable/foodorder_gray"
-                    android:text="Order Type" />
+                    android:text="Order Type"
+                    style="@style/TextStyleLarge.Regular.gray"
+                    />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextStyleLarge.Regular.gray"
                     android:layout_centerInParent="true"
-                    android:text="\t\t\t35 Mins\nPreperation Time" />
+                    android:text="\t\t\t35 Mins\nPreperation Time"
+                    />
 
                 <TextView
                     android:id="@+id/txtmap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:drawableTop="@drawable/placeholder_gray"
-                    android:text="Map" />
+                    android:text="Map"
+                    style="@style/TextStyleLarge.Regular.gray"/>
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -218,14 +211,12 @@
             android:layout_marginLeft="20dp"/>
         <TextView
             android:id="@+id/txtnumberitems"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:textSize="16sp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/white"
-            android:text="2 Items Added"/>
+            android:text="2 Items Added"
+            style="@style/TextStyleLarge.Bold.white"
+            />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -42,4 +42,19 @@ public class RestaurentInfo extends MvpBaseActivity {
         }
     }
 
+//    private void initMap() {
+//
+//        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+//    }
+//
+//    @Override
+//    public void onMapReady(GoogleMap map) {
+//
+//        LatLng latLng = new LatLng(13.05241, 80.25082);
+//        map.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+//        map.addMarker(new MarkerOptions().position(latLng).title("Raj Amal"));
+//        map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+//    }
+
 }

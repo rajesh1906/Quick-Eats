@@ -13,13 +13,11 @@
         android:background="@drawable/creditcard"/>
     <TextView
         android:id="@+id/txtoption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/img"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/gray"
-        android:text="XXXXX"/>
+        android:text="XXXXX"
+        style="@style/TextStyleLarge.Regular.gray"/>
     <ImageView
         android:id="@+id/imgtick"
         android:layout_width="wrap_content"

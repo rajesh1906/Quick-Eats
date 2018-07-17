@@ -36,14 +36,11 @@
                         android:background="@drawable/leftarrow_black" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10sp"
                         android:text="@string/checkoutheader"
-                        android:textColor="@color/gray"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        style="@style/TextStyleLarge.Bold.gray"/>
 
 
                 </LinearLayout>
@@ -51,22 +48,21 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryDark"
                 android:paddingBottom="8dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="8dp"
                 android:text="This is an Eat In Order."
-                android:textColor="@color/white" />
+                style="@style/TextStyleLarge.Regular.white"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:paddingBottom="4dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="4dp"
                 android:text="@string/chooseservicetype"
-                android:textColor="@color/gray" />
+                style="@style/TextStyleLarge.Regular.gray"
+                />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -95,11 +91,9 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:text="@string/tablenumber"
-                            android:textColor="@color/gray"
+                            style="@style/TextStyleLarge.Regular.gray"
                             android:textSize="11sp" />
 
                         <EditText
@@ -164,18 +158,14 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:text="Alkhaleej"
-                                android:textColor="@color/gray"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                style="@style/TextStyleLarge.Bold.gray"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:text="Tacos Chukis - Seattle, Washington"
-                                android:textSize="11sp" />
+                                android:textSize="11sp"
+                                style="@style/TextStyleLarge.Regular.gray"/>
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -214,14 +204,11 @@
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/offers" />
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/gray"
                         android:textSize="15sp"
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center_vertical"
-                        android:textStyle="bold"
-                        android:text="@string/applycoupon"/>
+                        android:text="@string/applycoupon"
+                        style="@style/TextStyleLarge.Bold.gray"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -237,14 +224,12 @@
             </android.support.v7.widget.CardView>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:textColor="@color/gray"
-                android:textStyle="bold"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="@string/selectpayment"/>
+                android:text="@string/selectpayment"
+                style="@style/TextStyleLarge.Bold.gray"/>
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -259,10 +244,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/colorPrimaryDark"
-                android:textColor="@color/white"
                 android:text="PAY 115.00"
                 android:textSize="15dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                style="@style/TextStyleLarge.Regular.white"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
