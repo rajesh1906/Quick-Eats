@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.quickeats.BaseActivity;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
 import com.quickeats.dashboard.fragments.BookFragment;
@@ -37,7 +38,7 @@ import butterknife.OnClick;
  * Created by Rajesh kumar on 22-06-2018.
  */
 
-public class DashboardActivity extends MvpBaseActivity implements DialogManage,LoadFragment.UpdateItem {
+public class DashboardActivity extends BaseActivity implements DialogManage,LoadFragment.UpdateItem,MenuCallback {
 
     DashboardPresenter presenter;
     @BindView(R.id.navigation)
@@ -46,6 +47,11 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage,L
     public static Activity instance;
     @Override
     public int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected int getLayoutResourceId() {
         return R.layout.activity_main;
     }
 
@@ -156,5 +162,11 @@ public class DashboardActivity extends MvpBaseActivity implements DialogManage,L
     @Override
     public void getItem() {
         mBottomSheetDialog.show();
+    }
+
+
+    @Override
+    public void callNavigationDrawer() {
+        navigationListProcess();
     }
 }

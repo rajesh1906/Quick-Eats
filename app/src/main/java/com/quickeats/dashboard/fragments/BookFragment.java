@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 
 import com.quickeats.R;
+import com.quickeats.dashboard.DashboardActivity;
+import com.quickeats.dashboard.MenuCallback;
 import com.quickeats.utils.ViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -51,6 +54,12 @@ public class BookFragment extends Fragment {
 
         return view;
     }
+    @OnClick(R.id.imgmenu)
+    public void menuClick(){
+        MenuCallback callback = (MenuCallback) DashboardActivity.instance;
+        callback.callNavigationDrawer();
+    }
+
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

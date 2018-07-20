@@ -29,6 +29,8 @@
     <string name="cacel">Cancel</string>
     <string name="yourorderstatus">Your Order Status</string>
     <string name="info">Info</string>
+    <string name="open_drawer">open drawer</string>
+    <string name="close_drawer">close drawer</string>
 
     <string-array name="food_types">
         <item>South Indian</item>
@@ -52,5 +54,20 @@
         <item>Monday - Thursday</item>
         <item>Friday</item>
         <item>Saturday</item>
+    </string-array>
+    <string-array name="dashboard_items_menu">
+        <item>Home</item>
+        <item>Favorites</item>
+        <item>Order</item>
+        <item>Cart</item>
+        <item>Offers</item>
+        <item>Sign out</item>
+    </string-array>
+    <string-array name="dashboard_items_menu_without_signout">
+        <item>Home</item>
+        <item>Favorites</item>
+        <item>Order</item>
+        <item>Cart</item>
+        <item>Offers</item>
     </string-array>
 </resources>

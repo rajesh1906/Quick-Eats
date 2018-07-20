@@ -25,4 +25,5 @@ public abstract class MvpBaseActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
     }
 
+
 }
