@@ -22,13 +22,18 @@
                 android:layout_gravity="left"
                 android:background="#000"
                 android:orientation="vertical">
+                <include layout="@layout/userprofile"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="70dp"/>
 
             <ListView
                 android:id="@+id/mainlist"
                 android:layout_width="240dp"
-                android:paddingLeft="40dp"
+                android:paddingLeft="30dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="30dp"
                 >
 
             </ListView>

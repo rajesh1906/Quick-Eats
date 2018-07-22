@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -20,12 +21,12 @@ import java.util.HashMap;
 
  public class ItemAdapter extends BaseAdapter {
 
-    private ArrayList<HashMap<String, String>> dataList;
+    private ArrayList<HashMap<String, Object>> dataList;
     int pos;
     Context context;
 
     public ItemAdapter(Context context,
-                       ArrayList<HashMap<String, String>> dataList) {
+                       ArrayList<HashMap<String, Object>> dataList) {
         this.dataList = dataList;
         this.context = context;
         Log.e("data list size is ","<><><"+dataList.size());
@@ -41,7 +42,9 @@ import java.util.HashMap;
         }
         gridView = inflater.inflate(R.layout.home_list_items, null);
         TextView title = (TextView) gridView.findViewById(R.id.title);
-        title.setText(dataList.get(position).get("title"));
+        ImageView icon = gridView.findViewById(R.id.icon);
+        title.setText(((String)dataList.get(position).get("title")));
+        icon.setBackgroundResource((Integer)dataList.get(position).get("image"));
         return gridView;
     }
 

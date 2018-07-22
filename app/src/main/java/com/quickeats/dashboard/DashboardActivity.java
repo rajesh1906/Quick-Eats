@@ -90,8 +90,11 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
     }
 
     public void initilizeViews(){
+        Fragment selectedFragment = null;
+        selectedFragment =   BookFragment.newInstance();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, BookFragment.newInstance());
+        transaction.replace(R.id.frame_layout, selectedFragment);
+        transaction.addToBackStack("bookFragment");
         transaction.commit();
         mbottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -100,26 +103,47 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_item1:
-                                selectedFragment = BookFragment.newInstance();
-                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                transaction.replace(R.id.frame_layout, selectedFragment);
-                                transaction.commit();
+                                if (getSupportFragmentManager().findFragmentByTag("bookFragment") != null) {
+                                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,getSupportFragmentManager().findFragmentByTag("bookFragment")).commit();
+                                }else {
+                                    FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                                    selectedFragment = BookFragment.newInstance();
+                                    transaction1.add(R.id.frame_layout, selectedFragment);
+                                    transaction1.addToBackStack("bookFragment");
+                                    transaction1.commit();
+                                }
                                 break;
                             case R.id.action_item2:
-                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
-//                                selectedFragment = FoodBeverageFragment.newInstance();
+//                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+                                FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+                                selectedFragment = FoodBeverageFragment.newInstance();
+                                transaction2.add(R.id.frame_layout, selectedFragment);
+                                transaction2.addToBackStack("foodFragment");
+                                transaction2.commit();
                                 break;
                             case R.id.action_item3:
-                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
-//                                selectedFragment = ScanFragment.newInstance();
+//                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+                                FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
+                                selectedFragment = ScanFragment.newInstance();
+                                transaction3.add(R.id.frame_layout, selectedFragment);
+                                transaction3.addToBackStack("scanFragment");
+                                transaction3.commit();
                                 break;
                             case R.id.action_item4:
-                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
-//                                selectedFragment = OffersFragment.newInstance();
+//                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+                                FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
+                                selectedFragment = OffersFragment.newInstance();
+                                transaction4.add(R.id.frame_layout, selectedFragment);
+                                transaction4.addToBackStack("offerFragment");
+                                transaction4.commit();
                                 break;
                             case R.id.action_item5:
-                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
-//                                selectedFragment = ProfileFragment.newInstance();
+//                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
+                                FragmentTransaction transaction5 = getSupportFragmentManager().beginTransaction();
+                                selectedFragment = ProfileFragment.newInstance();
+                                transaction5.add(R.id.frame_layout, selectedFragment);
+                                transaction5.addToBackStack("profileFragment");
+                                transaction5.commit();
                                 break;
                         }
 

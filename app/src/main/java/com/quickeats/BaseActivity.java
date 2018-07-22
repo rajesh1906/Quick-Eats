@@ -37,6 +37,7 @@ public abstract class BaseActivity extends MvpBaseActivity {
     ItemAdapter adapter;
     protected ImageView search_icon, filters_icon, close_icon,img_delete;
    protected AutoCompleteTextView edtSearch;
+
     Button btn_date;
 
     @Override

@@ -15,7 +15,8 @@ public class Dashboard_items {
 
 
     protected  String[] titles;
-    ArrayList<HashMap<String ,String >> data = new ArrayList<>();
+    ArrayList<HashMap<String ,Object >> data = new ArrayList<>();
+    Integer mhomeIcons[] = {R.drawable.homeicon,R.drawable.favorate,R.drawable.paymentbag,R.drawable.settingsgray};
     public Dashboard_items(Context context, String coming_from){
         if(null!=((String ) StoredDB.getInstance(context).getStorageValue("id"))) {
             if (((String) StoredDB.getInstance(context).getStorageValue("id")).length() != 0) {
@@ -31,10 +32,11 @@ public class Dashboard_items {
 
 
     }
-    public ArrayList<HashMap<String ,String >> getDashBoardItems(){
+    public ArrayList<HashMap<String ,Object >> getDashBoardItems(){
        for (int i = 0;i<titles.length;i++){
-           HashMap<String,String > items = new HashMap<>();
+           HashMap<String,Object > items = new HashMap<>();
            items.put("title",titles[i]);
+           items.put("image",mhomeIcons[i]);
            data.add(items);
        }
         return data;

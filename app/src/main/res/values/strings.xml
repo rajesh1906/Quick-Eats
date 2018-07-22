@@ -58,16 +58,14 @@
     <string-array name="dashboard_items_menu">
         <item>Home</item>
         <item>Favorites</item>
-        <item>Order</item>
-        <item>Cart</item>
-        <item>Offers</item>
+        <item>Payments</item>
+        <item>Settings</item>
         <item>Sign out</item>
     </string-array>
     <string-array name="dashboard_items_menu_without_signout">
         <item>Home</item>
         <item>Favorites</item>
-        <item>Order</item>
-        <item>Cart</item>
-        <item>Offers</item>
+        <item>Payments</item>
+        <item>Settings</item>
     </string-array>
 </resources>
