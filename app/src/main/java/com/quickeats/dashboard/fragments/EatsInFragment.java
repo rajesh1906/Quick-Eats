@@ -2,6 +2,7 @@ package com.quickeats.dashboard.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.quickeats.R;
 import com.quickeats.dashboard.DashboardActivity;
@@ -30,11 +32,12 @@ public class EatsInFragment extends Fragment implements LoadFragment {
     View mView;
     @BindView(R.id.recyclerview)
     RecyclerView mrecyclerView;
+    private boolean showuser=true;
 
 
     private static String TAG = EatsInFragment.class.getName();
-    public static OffersFragment newInstance() {
-        OffersFragment fragment = new OffersFragment();
+    public static EatsInFragment newInstance() {
+        EatsInFragment fragment = new EatsInFragment();
         return fragment;
     }
     @Nullable
@@ -44,8 +47,26 @@ public class EatsInFragment extends Fragment implements LoadFragment {
         mView = inflater.inflate(R.layout.eatinfragment,container,false);
         ButterKnife.bind(this,mView);
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
+        if(showuser) {
+            showuser=false;
+//            mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
+        }
         return mView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser&&!showuser){
+            Toast.makeText(getActivity(),"uservisible ",Toast.LENGTH_SHORT).show();
+            mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
+        }
     }
 
     @OnClick (R.id.imgSettings)
@@ -57,7 +78,6 @@ public class EatsInFragment extends Fragment implements LoadFragment {
 
     @Override
     public void load() {
-
         startActivity(new Intent(getActivity(), RestaurentActivity.class));
     }
 }

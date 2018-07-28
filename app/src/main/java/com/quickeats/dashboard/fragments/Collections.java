@@ -15,8 +15,8 @@ import com.quickeats.R;
 
 public class Collections extends Fragment {
     View view;
-    public static OffersFragment newInstance() {
-        OffersFragment fragment = new OffersFragment();
+    public static Collections newInstance() {
+        Collections fragment = new Collections();
         return fragment;
     }
     @Nullable

@@ -21,6 +21,7 @@ import com.quickeats.BaseActivity;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
 import com.quickeats.dashboard.fragments.BookFragment;
+import com.quickeats.dashboard.fragments.BookingFragment;
 import com.quickeats.dashboard.fragments.OffersFragment;
 import com.quickeats.dashboard.fragments.OrderFragment;
 import com.quickeats.dashboard.fragments.ProfileFragment;
@@ -93,7 +94,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
         Fragment selectedFragment = null;
         selectedFragment =   BookFragment.newInstance();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, selectedFragment);
+        transaction.replace(R.id.frame_layout, new BookingFragment());
         transaction.addToBackStack("bookFragment");
         transaction.commit();
         mbottomNavigationView.setOnNavigationItemSelectedListener
@@ -103,21 +104,21 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
                         Fragment selectedFragment = null;
                         switch (item.getItemId()) {
                             case R.id.action_item1:
-                                if (getSupportFragmentManager().findFragmentByTag("bookFragment") != null) {
-                                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,getSupportFragmentManager().findFragmentByTag("bookFragment")).commit();
-                                }else {
-                                    FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
-                                    selectedFragment = BookFragment.newInstance();
-                                    transaction1.add(R.id.frame_layout, selectedFragment);
-                                    transaction1.addToBackStack("bookFragment");
-                                    transaction1.commit();
-                                }
+//                                if (getSupportFragmentManager().findFragmentByTag("bookFragment") != null) {
+//                                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,getSupportFragmentManager().findFragmentByTag("bookFragment")).commit();
+//                                }else {
+//                                    FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//                                    selectedFragment = BookFragment.newInstance();
+//                                    transaction1.replace(R.id.frame_layout, selectedFragment);
+//                                    transaction1.addToBackStack("bookFragment");
+//                                    transaction1.commit();
+//                                }
                                 break;
                             case R.id.action_item2:
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
                                 selectedFragment = FoodBeverageFragment.newInstance();
-                                transaction2.add(R.id.frame_layout, selectedFragment);
+                                transaction2.replace(R.id.frame_layout, selectedFragment);
                                 transaction2.addToBackStack("foodFragment");
                                 transaction2.commit();
                                 break;
@@ -125,7 +126,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
                                 selectedFragment = ScanFragment.newInstance();
-                                transaction3.add(R.id.frame_layout, selectedFragment);
+                                transaction3.replace(R.id.frame_layout, selectedFragment);
                                 transaction3.addToBackStack("scanFragment");
                                 transaction3.commit();
                                 break;
@@ -133,7 +134,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
                                 selectedFragment = OffersFragment.newInstance();
-                                transaction4.add(R.id.frame_layout, selectedFragment);
+                                transaction4.replace(R.id.frame_layout, selectedFragment);
                                 transaction4.addToBackStack("offerFragment");
                                 transaction4.commit();
                                 break;
@@ -141,7 +142,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction5 = getSupportFragmentManager().beginTransaction();
                                 selectedFragment = ProfileFragment.newInstance();
-                                transaction5.add(R.id.frame_layout, selectedFragment);
+                                transaction5.replace(R.id.frame_layout, selectedFragment);
                                 transaction5.addToBackStack("profileFragment");
                                 transaction5.commit();
                                 break;
@@ -159,7 +160,14 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 
     @OnClick(R.id.ll_booking)
      void bookingImpl(){
-        mbottomNavigationView.setSelectedItemId(R.id.action_item1);
+//        mbottomNavigationView.setSelectedItemId(R.id.action_item1);
+        FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//        selectedFragment = BookFragment.newInstance();
+        transaction1.replace(R.id.frame_layout,  new BookingFragment());
+        transaction1.addToBackStack(null);
+        transaction1.commit();
+//        Toast.makeText(DashboardActivity.this,"Booking",Toast.LENGTH_SHORT).show();
+//        initilizeViews();
     }
 
     @SuppressLint("ResourceType")
