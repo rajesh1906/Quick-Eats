@@ -27,6 +27,11 @@ public class BookingFragment extends Fragment {
     View eatline;
     @BindView(R.id.collectionine)
     View collectionine;
+    @BindView(R.id.relsearching)
+    RelativeLayout relsearching;
+    @BindView(R.id.relmain)
+    RelativeLayout relmain;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,5 +72,21 @@ public class BookingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+
+
+    @OnClick(R.id.imgSearch)
+    void enableSearching(){
+        relsearching.setVisibility(View.VISIBLE);
+
+    }
+    @OnClick(R.id.relmain)
+    void enableMainHeadingLayout(){
+
+    }
+    @OnClick(R.id.imgback)
+    void searchBackImpl(){
+        relsearching.setVisibility(View.GONE);
     }
 }

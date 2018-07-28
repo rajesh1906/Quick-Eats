@@ -7,8 +7,14 @@
         android:id="@+id/relHeader"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
+
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relmain"
+            android:background="@color/colorPrimaryDark"
+            android:visibility="visible">
         <ImageView
             android:id="@+id/imgmenu"
             android:layout_width="20dp"
@@ -46,6 +52,49 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@+id/imgSearch"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relsearching"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:id="@+id/imgback"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/back_btn"
+
+                />
+            <AutoCompleteTextView
+                android:id="@+id/edtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:visibility="visible"
+                android:singleLine="true"
+                android:hint="Search City"
+                android:layout_toRightOf="@+id/imgback"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical"
+                android:imeOptions="actionSearch" />
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/delete_edit"/>
+        </RelativeLayout>
 
     </RelativeLayout>
     <LinearLayout
@@ -79,9 +128,10 @@
         </RelativeLayout>
 
 
+        android:layout_width="match_parent"
             <RelativeLayout
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/relcollection">
 
