@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -31,6 +31,7 @@
             android:layout_toRightOf="@+id/imgmenu"
             android:background="@drawable/location"/>
         <TextView
+            android:id="@+id/txtlocation"
             android:text="Location"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
@@ -53,55 +54,16 @@
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@+id/imgSearch"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/relsearching"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:visibility="gone"
-            >
-            <ImageView
-                android:id="@+id/imgback"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/back_btn"
 
-                />
-            <AutoCompleteTextView
-                android:id="@+id/edtSearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:visibility="visible"
-                android:singleLine="true"
-                android:hint="Search City"
-                android:layout_toRightOf="@+id/imgback"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
-                android:background="@color/white"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_vertical"
-                android:imeOptions="actionSearch" />
-            <ImageView
-                android:id="@+id/img_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:visibility="gone"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/delete_edit"/>
-        </RelativeLayout>
 
     </RelativeLayout>
     <LinearLayout
+        android:id="@+id/lltabs"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"
+        android:layout_below="@+id/relHeader"
         android:weightSum="2">
 
         <RelativeLayout
@@ -154,6 +116,55 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lltabs"/>
+    <RelativeLayout
+        android:id="@+id/relsearching"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/imgback"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back_btn"
 
-</LinearLayout>
+            />
+        <AutoCompleteTextView
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="text"
+            android:visibility="visible"
+            android:singleLine="true"
+            android:hint="Search City"
+            android:layout_toRightOf="@+id/imgback"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:imeOptions="actionSearch" />
+        <ImageView
+            android:id="@+id/img_delete"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+           android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+
+            android:background="@drawable/delete_edit"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/edtSearch"
+            android:background="@color/gray"/>
+    </RelativeLayout>
+</RelativeLayout>
