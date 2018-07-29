@@ -126,7 +126,7 @@ public abstract class BaseActivity extends MvpBaseActivity {
             {
                 @Override
                 public void onClick(View v) {
-                    hideKeyboard();
+                    hideKeyboard(mToolbar);
                     if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                     } else {
@@ -143,16 +143,13 @@ public abstract class BaseActivity extends MvpBaseActivity {
         } else {
             mDrawerLayout.openDrawer(GravityCompat.START);
         }
-        hideKeyboard();
+        hideKeyboard(mToolbar);
     }
 
-    public void hideKeyboard() {
-        View view = this.getCurrentFocus();
+    public void hideKeyboard(View view) {
         if (view != null) {
-            InputMethodManager inputManager = (InputMethodManager) this
-                    .getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(view.getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+            InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
     public static boolean haveNetworkConnection(Context context) {
@@ -170,6 +167,14 @@ public abstract class BaseActivity extends MvpBaseActivity {
                     haveConnectedMobile = true;
         }
         return haveConnectedWifi || haveConnectedMobile;
+    }
+
+    public void openKeyboard(View view){
+        InputMethodManager inputMethodManager =
+                (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInputFromWindow(
+                view.getApplicationWindowToken(),
+                InputMethodManager.SHOW_FORCED, 0);
     }
 
 

@@ -111,7 +111,7 @@ public class BookingFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 city_id = al_city_id.get(position);
                 relsearching.setVisibility(View.GONE);
-                ((DashboardActivity)getActivity()).hideKeyboard();
+                ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
                 txtlocation.setText(city_items.get(position));
             }
         });
@@ -122,6 +122,7 @@ public class BookingFragment extends Fragment {
     void enableSearching(){
         relsearching.setVisibility(View.VISIBLE);
         edtSearch.requestFocus();
+        ((DashboardActivity)getActivity()).openKeyboard(edtSearch);
 
     }
     @OnClick(R.id.relmain)
@@ -131,7 +132,7 @@ public class BookingFragment extends Fragment {
     @OnClick(R.id.imgback)
     void searchBackImpl(){
         relsearching.setVisibility(View.GONE);
-        ((DashboardActivity)getActivity()).hideKeyboard();
+        ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
     }
     @OnClick(R.id.img_delete)
     void searchDeleteImpl(){
