@@ -16,20 +16,20 @@ public class Dashboard_items {
 
     protected  String[] titles;
     ArrayList<HashMap<String ,Object >> data = new ArrayList<>();
-    Integer mhomeIcons[] = {R.drawable.homeicon,R.drawable.favorate,R.drawable.paymentbag,R.drawable.settingsgray};
+    Integer mhomeIcons[] = {R.drawable.details,R.drawable.locationblack,R.drawable.paymentoptions,R.drawable.foodorderblack,R.drawable.sharedark,R.drawable.favirates,R.drawable.support};
     public Dashboard_items(Context context, String coming_from){
-        if(null!=((String ) StoredDB.getInstance(context).getStorageValue("id"))) {
-            if (((String) StoredDB.getInstance(context).getStorageValue("id")).length() != 0) {
-                titles = context.getResources().getStringArray(R.array.dashboard_items_menu);
-
-            } else {
-                titles = context.getResources().getStringArray(R.array.dashboard_items_menu_without_signout);
-
-            }
-        }else{
-            titles = context.getResources().getStringArray(R.array.dashboard_items_menu_without_signout);
-        }
-
+//        if(null!=((String ) StoredDB.getInstance(context).getStorageValue("id"))) {
+//            if (((String) StoredDB.getInstance(context).getStorageValue("id")).length() != 0) {
+//                titles = context.getResources().getStringArray(R.array.dashboard_items_menu);
+//
+//            } else {
+//                titles = context.getResources().getStringArray(R.array.dashboard_items_menu_without_signout);
+//
+//            }
+//        }else{
+//            titles = context.getResources().getStringArray(R.array.dashboard_items_menu_without_signout);
+//        }
+        titles = context.getResources().getStringArray(R.array.dashboard_items_menu);
 
     }
     public ArrayList<HashMap<String ,Object >> getDashBoardItems(){

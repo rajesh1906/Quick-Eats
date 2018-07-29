@@ -38,8 +38,6 @@ import butterknife.OnClick;
 
 public class BookingFragment extends Fragment {
 
-
-
     View mView;
     @BindView(R.id.eatline)
     View eatline;
@@ -101,7 +99,6 @@ public class BookingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fetchLisiner();
-
     }
 
     private void fetchLisiner() {
@@ -115,7 +112,6 @@ public class BookingFragment extends Fragment {
                 txtlocation.setText(city_items.get(position));
             }
         });
-
     }
 
     @OnClick(R.id.imgSearch)

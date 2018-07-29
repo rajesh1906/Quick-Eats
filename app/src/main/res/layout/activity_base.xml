@@ -20,20 +20,28 @@
                 android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
-                android:background="#000"
+                android:background="@color/white"
                 android:orientation="vertical">
-                <include layout="@layout/userprofile"
-                    android:layout_width="240dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="70dp"/>
-
+                <!--<include layout="@layout/userprofile"-->
+                    <!--android:layout_width="240dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:layout_marginTop="70dp"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Menu"
+                    android:textSize="20sp"
+                    style="@style/TextStyleLarge.Bold.white"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="10dp"/>
             <ListView
                 android:id="@+id/mainlist"
                 android:layout_width="240dp"
                 android:paddingLeft="30dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 >
 
             </ListView>
