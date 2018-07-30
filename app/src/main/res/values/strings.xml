@@ -31,6 +31,7 @@
     <string name="info">Info</string>
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">close drawer</string>
+    <string name="paymentoptions">Payment Options</string>
 
     <string-array name="food_types">
         <item>South Indian</item>
