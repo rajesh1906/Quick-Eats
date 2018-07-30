@@ -1,4 +1,4 @@
-package com.quickeats.menu;
+package com.quickeats.NavigationItems;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
 
-public class PaymentActivity extends MvpBaseActivity {
+public class PaymentOptionsActivity extends MvpBaseActivity {
     @Override
     public int getLayout() {
-        return R.layout.activitypayment;
+        return  R.layout.activitypayment;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.quickeats;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -8,7 +9,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.quickeats.NavigationItems.PaymentOptionsActivity;
 import com.quickeats.customviews.CustomDrawerLayout;
 import com.quickeats.customviews.ItemAdapter;
 import com.quickeats.utils.Dashboard_items;
@@ -100,7 +101,8 @@ public abstract class BaseActivity extends MvpBaseActivity {
 
                         break;
                     case 2:
-
+//                        Toast.makeText(BaseActivity.this,"Payments",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(BaseActivity.this, PaymentOptionsActivity.class));
                         break;
                     case 3:
 
