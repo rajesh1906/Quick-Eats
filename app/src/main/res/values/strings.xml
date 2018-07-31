@@ -33,6 +33,13 @@
     <string name="close_drawer">close drawer</string>
     <string name="paymentoptions">Payment Options</string>
     <string name="addnewpaymentmethod">Add New Payment Method</string>
+    <string name="details">Details</string>
+    <string name="saved_address">Saved Address</string>
+    <string name="payment_options">Payment Options</string>
+    <string name="my_orders">My Orders</string>
+    <string name="refer_a_friend">Refer a Friend</string>
+    <string name="favorites">Favorites</string>
+    <string name="help">Help</string>
 
     <string-array name="food_types">
         <item>South Indian</item>

@@ -53,6 +53,18 @@
         <activity android:name=".NavigationItems.PaymentOptionsActivity"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".NavigationItems.DetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationItems.FavoretiesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationItems.HelpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationItems.MyOrdersActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationItems.SavedAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationItems.ReferFriendActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".dashboard.Sample">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->

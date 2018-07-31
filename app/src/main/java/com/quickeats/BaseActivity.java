@@ -21,7 +21,13 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.quickeats.NavigationItems.DetailsActivity;
+import com.quickeats.NavigationItems.FavoretiesActivity;
+import com.quickeats.NavigationItems.HelpActivity;
+import com.quickeats.NavigationItems.MyOrdersActivity;
 import com.quickeats.NavigationItems.PaymentOptionsActivity;
+import com.quickeats.NavigationItems.ReferFriendActivity;
+import com.quickeats.NavigationItems.SavedAddressActivity;
 import com.quickeats.customviews.CustomDrawerLayout;
 import com.quickeats.customviews.ItemAdapter;
 import com.quickeats.utils.Dashboard_items;
@@ -95,23 +101,28 @@ public abstract class BaseActivity extends MvpBaseActivity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
-
+                        startActivity(new Intent(BaseActivity.this, DetailsActivity.class));
                         break;
                     case 1:
-
+                        startActivity(new Intent(BaseActivity.this, SavedAddressActivity.class));
                         break;
                     case 2:
 //                        Toast.makeText(BaseActivity.this,"Payments",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(BaseActivity.this, PaymentOptionsActivity.class));
                         break;
                     case 3:
-
+                        startActivity(new Intent(BaseActivity.this, MyOrdersActivity.class));
                         break;
                     case 4:
+                        startActivity(new Intent(BaseActivity.this, ReferFriendActivity.class));
 
                         break;
                     case 5:
+                        startActivity(new Intent(BaseActivity.this, FavoretiesActivity.class));
                        // new Common_methods(BaseActivity.this).popup(BaseActivity.this,"logout");
+                        break;
+                    case 6:
+                        startActivity(new Intent(BaseActivity.this, HelpActivity.class));
                         break;
                 }
                 navigationListProcess();

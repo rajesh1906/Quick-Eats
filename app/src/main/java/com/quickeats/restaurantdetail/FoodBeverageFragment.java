@@ -45,7 +45,7 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
 
     @Override
     public void getItemPosition(int position) {
-        LoadFragment.ImplItems implItems = (LoadFragment.ImplItems)RestaurentActivity.instance;
-        implItems.getItemPosition(position);
+//        LoadFragment.ImplItems implItems = (LoadFragment.ImplItems)RestaurentActivity.instance;
+//        implItems.getItemPosition(position);
     }
 }
