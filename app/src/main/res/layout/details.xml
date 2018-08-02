@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
     <TextView
+        android:id="@+id/txtheader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
@@ -10,11 +12,168 @@
         android:text="@string/details"
         android:textSize="@dimen/text_size_18"
         android:padding="10dp"/>
-
+    <ImageView
+        android:id="@+id/imgcancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cancel_white"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/txtheader"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:hint="First Name"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/profile_avatar"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:drawablePadding="10dp"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:hint="Last Name"
+            android:drawableLeft="@drawable/profile_avatar"
+            android:drawablePadding="10dp"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:textColorHint="@color/gray"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:hint="Phone  Number"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:textColorHint="@color/gray"
+            android:inputType="phone"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/phoneicon"
+            android:drawablePadding="10dp"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:hint="Email"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/mail"
+            android:inputType="textEmailAddress"
+            android:drawablePadding="10dp"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:hint="Password"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:hint="Confirm Password"
+            android:paddingLeft="@dimen/edttxt_leftpadding"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            style="@style/TextStyleLarge.Regular.gray"
+            android:background="@color/white"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

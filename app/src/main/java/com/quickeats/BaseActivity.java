@@ -1,5 +1,6 @@
 package com.quickeats;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -21,7 +22,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.quickeats.NavigationItems.DetailsActivity;
 import com.quickeats.NavigationItems.FavoretiesActivity;
 import com.quickeats.NavigationItems.HelpActivity;
 import com.quickeats.NavigationItems.MyOrdersActivity;
@@ -101,7 +101,9 @@ public abstract class BaseActivity extends MvpBaseActivity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
-                        startActivity(new Intent(BaseActivity.this, DetailsActivity.class));
+//                        startActivity(new Intent(BaseActivity.this, DetailsActivity.class));
+                        openDetailsDailog();
+
                         break;
                     case 1:
                         startActivity(new Intent(BaseActivity.this, SavedAddressActivity.class));
@@ -114,7 +116,8 @@ public abstract class BaseActivity extends MvpBaseActivity {
                         startActivity(new Intent(BaseActivity.this, MyOrdersActivity.class));
                         break;
                     case 4:
-                        startActivity(new Intent(BaseActivity.this, ReferFriendActivity.class));
+//                        startActivity(new Intent(BaseActivity.this, ReferFriendActivity.class));
+                        openReferFriend();
 
                         break;
                     case 5:
@@ -192,5 +195,28 @@ public abstract class BaseActivity extends MvpBaseActivity {
                 InputMethodManager.SHOW_FORCED, 0);
     }
 
-
+    private void openDetailsDailog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.details);
+        ImageView imgcancel = dialog.findViewById(R.id.imgcancel);
+        imgcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+    private void openReferFriend(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.referfriendactivity);
+        ImageView imgcancel = dialog.findViewById(R.id.imgcancel);
+        imgcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 }

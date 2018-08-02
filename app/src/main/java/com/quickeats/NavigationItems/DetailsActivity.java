@@ -16,4 +16,6 @@ public class DetailsActivity extends MvpBaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
 }

@@ -41,6 +41,9 @@
     <string name="favorites">Favorites</string>
     <string name="help">Help</string>
 
+
+
+
     <string-array name="food_types">
         <item>South Indian</item>
         <item>Andra Style</item>
