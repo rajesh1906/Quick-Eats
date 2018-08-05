@@ -32,4 +32,8 @@ public class PaymentOptionsActivity extends MvpBaseActivity {
     void backButtonImpl(){
         finish();
     }
+    @OnClick(R.id.reladdpayment)
+    void AddPaymentOptions(){
+
+    }
 }
