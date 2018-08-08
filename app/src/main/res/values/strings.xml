@@ -43,6 +43,9 @@
     <string name="faq">FAQ</string>
     <string name="Legal">Legal</string>
     <string name="contactus">Contact Us</string>
+    <string name="favorites_header">List of all Favorites rastaurant</string>
+    <string name="ordersummary">Order Summary</string>
+    <string name="ordertracker">Order Tracker</string>
 
 
     <string-array name="food_types">

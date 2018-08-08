@@ -1,20 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        style="@style/TextStyleLarge.Bold.white"
-        android:text="@string/my_orders"
-        android:textSize="@dimen/text_size_18"
-        android:padding="10dp"/>
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_arrow"
+            android:layout_margin="10dp" />
+        <TextView
+            android:id="@+id/txthead"
+            android:layout_centerHorizontal="true"
+            android:text="Hi James, Thank you for ordering with Quick eats"
+            android:textSize="@dimen/text_size_14"
+            android:layout_margin="10dp"
+            style="@style/TextStyleLarge.Regular.white"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/txthead"
+            android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imgsmile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/smileface"/>
+        <TextView
+            android:layout_below="@+id/imgsmile"
+            android:text="Order Number - 1234"
+            android:textSize="@dimen/text_size_18"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            style="@style/TextStyleLarge.Regular.white"/>
+        <TextView
+            android:layout_below="@+id/imgsmile"
+            android:text="Will be served to your table - 01"
+            android:textSize="@dimen/text_size_18"
+           android:layout_gravity="center_horizontal"
+            style="@style/TextStyleLarge.Regular.white"
+            />
 
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="1dp"
+        android:layout_marginTop="10dp"
+        card_view:cardElevation="5dp"
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/qrcode"
+            android:layout_gravity="center"
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:drawableRight="@drawable/downarrow"
+        android:paddingRight="10dp"
+        android:text="@string/ordersummary"/>
+        <LinearLayout
+            android:id="@+id/llitems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        style="@style/TextStyleLarge.Regular.white"
+        android:text="@string/ordertracker"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_18"/>
 </RelativeLayout>
