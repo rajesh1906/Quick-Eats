@@ -1,5 +1,6 @@
 package com.quickeats.NavigationItems;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,12 @@ public class FavoretiesActivity extends MvpBaseActivity {
     public int getLayout() {
         return R.layout.favoretiesacctivity;
     }
+
+    @Override
+    protected Object setupActivityComponent() {
+        return null;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,4 +49,28 @@ public class FavoretiesActivity extends MvpBaseActivity {
     }
 
 
+    @Override
+    public Activity getActivityFromView() {
+        return null;
+    }
+
+    @Override
+    public void showProgressDialog() {
+
+    }
+
+    @Override
+    public void hideProgressDialog() {
+
+    }
+
+    @Override
+    public void setupPresenter(Object presenter) {
+
+    }
+
+    @Override
+    public String getViewIdentity() {
+        return null;
+    }
 }

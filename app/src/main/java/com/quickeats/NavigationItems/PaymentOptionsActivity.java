@@ -1,5 +1,7 @@
 package com.quickeats.NavigationItems;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -22,6 +24,11 @@ public class PaymentOptionsActivity extends MvpBaseActivity {
     }
 
     @Override
+    protected Object setupActivityComponent() {
+        return null;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
@@ -34,6 +41,32 @@ public class PaymentOptionsActivity extends MvpBaseActivity {
     }
     @OnClick(R.id.reladdpayment)
     void AddPaymentOptions(){
+        startActivity(new Intent(this,AddPaymentOptions.class));
+    }
 
+
+    @Override
+    public Activity getActivityFromView() {
+        return null;
+    }
+
+    @Override
+    public void showProgressDialog() {
+
+    }
+
+    @Override
+    public void hideProgressDialog() {
+
+    }
+
+    @Override
+    public void setupPresenter(Object presenter) {
+
+    }
+
+    @Override
+    public String getViewIdentity() {
+        return null;
     }
 }

@@ -8,7 +8,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  * Created by Rajesh kumar on 17-07-2018.
  */
 
-public class QuickEats extends Application {
+public class QuickEats extends QuickEatsBase {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,5 +20,11 @@ public class QuickEats extends Application {
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+    }
+
+    @Override
+    protected QuickEatComponent createApplicationComponent() {
+        return DaggerQuickEatComponent.builder().
+                quickEatsAppModule(new QuickEatsAppModule(this)).build();
     }
 }

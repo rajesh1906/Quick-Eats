@@ -51,6 +51,11 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     }
 
     @Override
+    protected Object setupActivityComponent() {
+        return null;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
@@ -121,5 +126,30 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
         lladdeditems.setVisibility(View.VISIBLE);
         txtnumberitems.setText(position + " Items Added");
 //        Toast.makeText(this,"Item Position"+position,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public Activity getActivityFromView() {
+        return null;
+    }
+
+    @Override
+    public void showProgressDialog() {
+
+    }
+
+    @Override
+    public void hideProgressDialog() {
+
+    }
+
+    @Override
+    public void setupPresenter(Object presenter) {
+
+    }
+
+    @Override
+    public String getViewIdentity() {
+        return null;
     }
 }

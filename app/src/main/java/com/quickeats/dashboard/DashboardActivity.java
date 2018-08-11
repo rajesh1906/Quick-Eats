@@ -52,6 +52,11 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
     }
 
     @Override
+    protected Object setupActivityComponent() {
+        return null;
+    }
+
+    @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_main;
     }
@@ -80,6 +85,12 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
         });
     }
 
+
+    @Override
+    public Activity getActivityFromView() {
+        return null;
+    }
+
     @Override
     public void showProgressDialog() {
 
@@ -88,6 +99,16 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
     @Override
     public void hideProgressDialog() {
 
+    }
+
+    @Override
+    public void setupPresenter(Object presenter) {
+
+    }
+
+    @Override
+    public String getViewIdentity() {
+        return null;
     }
 
     public void initilizeViews(){

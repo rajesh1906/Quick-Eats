@@ -14,6 +14,7 @@
         android:layout_height="180dp"
         android:background="@color/colorPrimaryDark">
         <ImageView
+            android:id="@+id/imgback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/left_arrow"
@@ -89,6 +90,7 @@
             android:orientation="vertical"/>
     </LinearLayout>
     <TextView
+        android:id="@+id/txtordertracker"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"

@@ -7,5 +7,8 @@ public interface MvpView<P> {
     Activity getActivityFromView();
     void showProgressDialog();
     void hideProgressDialog();
+    void setupPresenter(P presenter);
+    String getViewIdentity();
+
 
 }

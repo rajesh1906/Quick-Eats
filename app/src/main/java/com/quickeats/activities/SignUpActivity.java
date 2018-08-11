@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.quickeats.R;
+import com.quickeats.activities.signin.SignInActivity;
 import com.quickeats.dashboard.DashboardActivity;
 
 import butterknife.ButterKnife;

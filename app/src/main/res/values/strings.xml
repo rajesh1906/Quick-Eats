@@ -46,6 +46,12 @@
     <string name="favorites_header">List of all Favorites rastaurant</string>
     <string name="ordersummary">Order Summary</string>
     <string name="ordertracker">Order Tracker</string>
+    <string name="cardnumber">Card Number</string>
+    <string name="cvv">CVV</string>
+    <string name="addcard">Add Card</string>
+    <string name="next">NEXT</string>
+    <string name="orderhistory">Order History</string>
+    <string name="Orderdetails">Order Details</string>
 
 
     <string-array name="food_types">

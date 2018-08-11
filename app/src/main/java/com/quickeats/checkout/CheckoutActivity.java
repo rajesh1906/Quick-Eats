@@ -1,5 +1,6 @@
 package com.quickeats.checkout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -35,6 +36,11 @@ public class CheckoutActivity extends MvpBaseActivity{
     @Override
     public int getLayout() {
         return R.layout.checkoutactivity;
+    }
+
+    @Override
+    protected Object setupActivityComponent() {
+        return null;
     }
 
     @Override
@@ -83,5 +89,30 @@ public class CheckoutActivity extends MvpBaseActivity{
         }
 
 
+    }
+
+    @Override
+    public Activity getActivityFromView() {
+        return null;
+    }
+
+    @Override
+    public void showProgressDialog() {
+
+    }
+
+    @Override
+    public void hideProgressDialog() {
+
+    }
+
+    @Override
+    public void setupPresenter(Object presenter) {
+
+    }
+
+    @Override
+    public String getViewIdentity() {
+        return null;
     }
 }

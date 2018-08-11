@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
+import com.quickeats.activities.signin.SignInActivity;
 
 public class SplashScreenActivity  extends AppCompatActivity{
     Handler handler;
