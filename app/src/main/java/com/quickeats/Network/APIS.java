@@ -28,5 +28,6 @@ package com.quickeats.Network;
     public static String DefultRestaurantLoading = "DefultRestaurantLoading";
     public static String GettingResDataBasedOnLat = "GettingResDataBasedOnLat";
     public static String AddsLoading = "AddsLoading";
+    public static String SIGNIN = "LogingGettingData";
 
 }

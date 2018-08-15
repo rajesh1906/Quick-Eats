@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import dagger.Module;
+import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -16,13 +18,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Rajesh kumar on 13-07-2017.
  */
-
+@Module
 public class RetrofitClient extends AppCompatActivity implements ConnectApiService {
     private static Retrofit retrofit = null;
     private static RetrofitClient uniqInstance;
     Context ctx;
     EndPoint endPoint = null;
 
+    @Provides
     public static RetrofitClient getInstance() {
         if (uniqInstance == null) {
             uniqInstance = new RetrofitClient();
@@ -70,7 +73,7 @@ public class RetrofitClient extends AppCompatActivity implements ConnectApiServi
 //        CustomProgressbar.hideProgressBar();
     }
 
-    @Inject
+    @Provides
     @Override
     public ApiService getApiService() {
         return RetrofitClient.getClient(APIS.BASEURL).create(ApiService.class);

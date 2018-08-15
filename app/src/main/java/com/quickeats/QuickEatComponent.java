@@ -1,5 +1,6 @@
 package com.quickeats;
 
+import com.quickeats.Network.RetrofitClient;
 import com.quickeats.activities.signin.SignAppModule;
 import com.quickeats.shared.NetworkModule;
 

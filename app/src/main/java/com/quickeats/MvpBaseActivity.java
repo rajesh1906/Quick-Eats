@@ -1,6 +1,7 @@
 package com.quickeats;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,8 +28,10 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
     private P  mPresenter;
     private C mActivityComponent;
     protected abstract C setupActivityComponent();
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
 
         onCreateBeforeSuper(savedInstanceState);
 
@@ -49,12 +52,15 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
             setContentView(viewId);
             ButterKnife.bind(this);
             onCreateAfterSetContentView(savedInstanceState);
+            setupProgressbar();
         } else {
             throw new RuntimeException("Invalid content view for activity");
         }
 
     }
-
+ private void setupProgressbar(){
+     progressDialog = new ProgressDialog(this);
+ }
     protected final C getActivityComponent() {
         return mActivityComponent;
     }
@@ -111,5 +117,15 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
     @Override
     public String getViewIdentity() {
         return null;
+    }
+
+    @Override
+    public void showProgressDialog() {
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        progressDialog.dismiss();
     }
 }
