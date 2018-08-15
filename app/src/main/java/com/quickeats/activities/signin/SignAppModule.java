@@ -1,5 +1,9 @@
 package com.quickeats.activities.signin;
 
+import com.quickeats.utils.CommonValidations;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import dagger.Subcomponent;
@@ -8,7 +12,12 @@ import dagger.Subcomponent;
 public class SignAppModule {
 
     @Provides
-    SigninPresenter getSigninPresenter(){
+    SigninPresenter getSigninPresenter() {
         return new SigninPresenterImpl();
+    }
+
+    @Provides
+    CommonValidations getValiadtion() {
+        return new CommonValidations();
     }
 }

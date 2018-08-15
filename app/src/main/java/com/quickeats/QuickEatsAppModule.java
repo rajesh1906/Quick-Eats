@@ -2,6 +2,8 @@ package com.quickeats;
 
 import android.app.Application;
 
+import com.quickeats.utils.CommonValidations;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -19,6 +21,8 @@ public class QuickEatsAppModule {
     public Application provideApplication(){
         return mApplication;
     }
+
+
 
 
 

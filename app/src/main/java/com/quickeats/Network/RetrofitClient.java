@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -20,6 +22,7 @@ public class RetrofitClient extends AppCompatActivity implements ConnectApiServi
     private static RetrofitClient uniqInstance;
     Context ctx;
     EndPoint endPoint = null;
+
     public static RetrofitClient getInstance() {
         if (uniqInstance == null) {
             uniqInstance = new RetrofitClient();
@@ -44,33 +47,32 @@ public class RetrofitClient extends AppCompatActivity implements ConnectApiServi
     }
 
 
-
-
-
-    public EndPoint getEndPoint(Context context, String progress_bar_status){
+    @Inject
+    public EndPoint getEndPoint(Context context, String progress_bar_status) {
         this.ctx = context;
 
-            if (endPoint == null) {
-                endPoint = new EndPoint(context);
-            }
-            if (progress_bar_status.length()!=0) {
-                showProgressDialog(context);
-            }
+        if (endPoint == null) {
+            endPoint = new EndPoint(context);
+        }
+        if (progress_bar_status.length() != 0) {
+            showProgressDialog(context);
+        }
         return endPoint;
     }
 
 
-
-    private void showProgressDialog(Context context){
+    private void showProgressDialog(Context context) {
 
 //        CustomProgressbar.showProgressBar(context, false);
     }
 
-    public void hideProgressDialog(){
+    public void hideProgressDialog() {
 //        CustomProgressbar.hideProgressBar();
     }
+
+    @Inject
     @Override
     public ApiService getApiService() {
-        return  RetrofitClient.getClient(APIS.BASEURL).create(ApiService.class);
+        return RetrofitClient.getClient(APIS.BASEURL).create(ApiService.class);
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Login error section-->
+    <string name="error_genric_valid_details">Please enter valid details</string>
+    <string name="error_generic_valid_password">Please enter valid password</string>
+    <string name="error_generic_valid_email">Please enter valid email</string>
+</resources>

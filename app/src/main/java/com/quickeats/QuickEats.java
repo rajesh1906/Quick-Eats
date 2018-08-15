@@ -2,6 +2,9 @@ package com.quickeats;
 
 import android.app.Application;
 
+import com.quickeats.Network.APIS;
+import com.quickeats.shared.NetworkModule;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -24,7 +27,9 @@ public class QuickEats extends QuickEatsBase {
 
     @Override
     protected QuickEatComponent createApplicationComponent() {
-        return DaggerQuickEatComponent.builder().
-                quickEatsAppModule(new QuickEatsAppModule(this)).build();
+        return DaggerQuickEatComponent.builder()
+                .quickEatsAppModule(new QuickEatsAppModule(this))
+                .networkModule(new NetworkModule(APIS.BASEURL))
+                .build();
     }
 }

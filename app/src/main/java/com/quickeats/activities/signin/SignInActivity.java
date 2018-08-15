@@ -1,24 +1,32 @@
 package com.quickeats.activities.signin;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.quickeats.AuthenticateComponent;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
-import com.quickeats.activities.ForgotPasswordActivity;
-import com.quickeats.activities.SignUpActivity;
-import com.quickeats.dashboard.DashboardActivity;
+import com.quickeats.shared.NetworkModule;
+import com.quickeats.utils.CommonValidations;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignInActivity extends MvpBaseActivity<SigninPresenter,SignAppModule>{
+public class SignInActivity extends MvpBaseActivity<SigninPresenter, AuthenticateComponent> implements SigninView {
 
+
+    @BindView(R.id.edt_email)
+    EditText edt_email;
+    @BindView(R.id.edt_password)
+    EditText edt_password;
+
+    @Inject
+    CommonValidations validations;
+    NetworkModule networkModule;
 
     @Override
     public int getLayout() {
@@ -26,30 +34,34 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter,SignAppModul
     }
 
     @Override
-    protected SignAppModule setupActivityComponent() {
-        return getApplicationComponent().inject(new SignAppModule());
+    protected AuthenticateComponent setupActivityComponent() {
+        return getApplicationComponent().plus(new SignAppModule());
     }
 
     @OnClick(R.id.tv_next)
-    void submitDetails(){
+    void submitDetails() {
+        String eamil = edt_email.getText().toString();
+        String password = edt_password.getText().toString();
+        Log.e("networkModule", "<>><" + networkModule);
+        getPresenter().handleLoginRequest(eamil, password, validations,networkModule);
 
-    getPresenter().handleLoginRequest("","");
+//        Log.e("valiadtions", "<>><" + validations+" ");
+
     }
+
     @OnClick(R.id.txtsignup)
-    void launchSignupScreen(){
-        startActivity(new Intent(this,SignUpActivity.class));
-    }
-    @OnClick(R.id.txtforgetpassword)
-    void launchForgetPasswordScreen(){
-        startActivity(new Intent(this,ForgotPasswordActivity.class));
+    void launchSignupScreen() {
+        getPresenter().handleLaunchSignUpscreen();
     }
 
+    @OnClick(R.id.txtforgetpassword)
+    void launchForgetPasswordScreen() {
+        getPresenter().handleLaunchForgetScreen();
+    }
 
     @Override
     protected void onCreateAfterSetContentView(Bundle savedInstanceState) {
         super.onCreateAfterSetContentView(savedInstanceState);
-
-
     }
 
     @Override
@@ -61,4 +73,31 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter,SignAppModul
     public void hideProgressDialog() {
 
     }
+
+    @Override
+    public void showErrorMessage(int errorMessage) {
+        switch (errorMessage) {
+            case 1:
+                showToastMessage(getResources().getString(R.string.error_genric_valid_details));
+                break;
+            case 2:
+                showToastMessage(getResources().getString(R.string.error_generic_valid_password));
+                break;
+        }
+    }
+
+    @Override
+    public void showEmailFieldError(boolean show) {
+        if (!show) {
+            showToastMessage(getResources().getString(R.string.error_generic_valid_email));
+        }
+
+    }
+
+    private void showToastMessage(String message) {
+        Toast.makeText(SignInActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }

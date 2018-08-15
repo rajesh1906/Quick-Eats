@@ -10,6 +10,10 @@ import android.util.Log;
 import com.quickeats.shared.MvpPresenter;
 import com.quickeats.shared.MvpView;
 
+import java.lang.reflect.Method;
+
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -34,11 +38,14 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
         int viewId = getLayout();
         if (viewId != 0) {
             mActivityComponent = setupActivityComponent();
-            if (mPresenter != null) {
-                mPresenter.onCreate(savedInstanceState);
+            if(mActivityComponent!=null){
+                injectActivity();
+                if (mPresenter != null) {//getting null
+                    Log.e("presenter","not null");
+                    mPresenter.onCreate(savedInstanceState);
+                }
             }
             onCreateBeforeSetContentView(savedInstanceState);
-
             setContentView(viewId);
             ButterKnife.bind(this);
             onCreateAfterSetContentView(savedInstanceState);
@@ -48,6 +55,20 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
 
     }
 
+    protected final C getActivityComponent() {
+        return mActivityComponent;
+    }
+
+
+    protected void injectActivity() {
+        Object injector = getActivityComponent();
+        try {
+            Method injectMethod = injector.getClass().getMethod("inject", getClass());
+            injectMethod.invoke(injector, this);
+        } catch (Exception e) {
+            Log.e("error", "Error injecting fragment dependencies", e);
+        }
+    }
     protected final QuickEatComponent getApplicationComponent() {
         return ((QuickEatsBase) getApplication()).getQuickEatComponent();
     }
@@ -78,6 +99,7 @@ public abstract class MvpBaseActivity<P extends MvpPresenter,C> extends AppCompa
         return this;
     }
 
+    @Inject
     @Override
     public void setupPresenter(P presenter) {
         mPresenter = presenter;
