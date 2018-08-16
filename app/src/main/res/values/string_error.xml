@@ -4,4 +4,9 @@
     <string name="error_genric_valid_details">Please enter valid details</string>
     <string name="error_generic_valid_password">Please enter valid password</string>
     <string name="error_generic_valid_email">Please enter valid email</string>
+
+    <!--Registration error-->
+    <string name="error_generic_valid_fname">Please enter vaild First Name  </string>
+    <string name="error_generic_valid_lname">Please enter vaild Last Name  </string>
+    <string name="error_generic_valid_phone">Please enter vaild Phone Number </string>
 </resources>

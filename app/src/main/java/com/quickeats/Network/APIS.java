@@ -29,5 +29,6 @@ package com.quickeats.Network;
     public static String GettingResDataBasedOnLat = "GettingResDataBasedOnLat";
     public static String AddsLoading = "AddsLoading";
     public static String SIGNIN = "LogingGettingData";
+    public static String SIGNUP = "LoginSave";
 
 }

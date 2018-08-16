@@ -5,30 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
-import com.quickeats.Network.ApiService;
-import com.quickeats.Network.RetrofitClient;
-import com.quickeats.QuickEatsBase;
-import com.quickeats.R;
 import com.quickeats.activities.ForgotPasswordActivity;
-import com.quickeats.activities.SignUpActivity;
-import com.quickeats.dashboard.DashboardActivity;
-import com.quickeats.dashboard.model.Cities;
+import com.quickeats.activities.signup.SignUpActivity;
 import com.quickeats.shared.CallbackService;
 import com.quickeats.shared.MvpBasePresenter;
 import com.quickeats.shared.NetworkModule;
+
 import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
 import com.quickeats.utils.CommonValidations;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;

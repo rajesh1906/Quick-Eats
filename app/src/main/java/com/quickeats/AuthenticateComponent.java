@@ -9,4 +9,5 @@ import dagger.Subcomponent;
 @Subcomponent(modules = SignAppModule.class)
 public interface AuthenticateComponent {
     void inject(SignInActivity activity);
+
 }
