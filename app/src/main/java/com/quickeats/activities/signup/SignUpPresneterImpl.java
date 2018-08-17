@@ -93,13 +93,12 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
                         getView().hideProgressDialog();
                         Log.e("success", "<><" + response.body());
                         try{
-
+                            ((CallbackService) getActivity()).callBackActivity();
                         }catch (Exception e){
-
+//                            RetrofitE
+                            e.printStackTrace();
                         }
-                        ((CallbackService) getActivity()).callBackActivity();
                     }
-
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
                         Log.e("fail", "<><" + t.getMessage());
