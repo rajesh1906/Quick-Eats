@@ -72,7 +72,6 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
                 showToastMessage(getResources().getString(R.string.error_generic_network_connection));
                 break;
             case 4:
-                showToastMessage(getResources().getString(R.string.error_generic_internal_server_error));
                 break;
         }
     }

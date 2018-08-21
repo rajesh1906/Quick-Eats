@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements SigninPresenter {
 
 
-    CommonValidations validations;
+    Object validations;
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
 
@@ -51,7 +51,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
 
     @Override
     public void handleLoginRequest(String email, String password, Object validation) {
-        this.validations = (CommonValidations) validation;
+        this.validations = validation;
         Log.e("coming to handler", "<>><");
         if(BaseActivity.haveNetworkConnection(getActivity())) {
             if (checkValidation(email, password)) {
@@ -79,7 +79,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
         if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
             validation = false;
             getView().showErrorMessage(1);
-        } else if (!validations.emailValidation(email)) {
+        } else if (!((CommonValidations)validations).emailValidation(email)) {
             validation = false;
             getView().showEmailFieldError(false);
         } else if (TextUtils.isEmpty(password)) {

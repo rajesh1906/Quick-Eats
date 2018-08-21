@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.quickeats.Network.APIS;
 import com.quickeats.shared.NetworkModule;
+import com.quickeats.utils.CommonValidationImpl;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
