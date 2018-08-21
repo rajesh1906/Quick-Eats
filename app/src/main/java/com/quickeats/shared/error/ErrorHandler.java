@@ -15,11 +15,11 @@ import java.util.logging.Logger;
 public class ErrorHandler {
     private static final String TAG = ErrorHandler.class.getSimpleName();
 
-    interface ErrorHandlerCallback {
+   public interface ErrorHandlerCallback {
 
         void onHttpError(RetrofitException e);
 
-        void onNetworkError(IOException e);
+        void onNetworkError();
 
         void onServerError(String errorMessage);
 
@@ -56,7 +56,7 @@ public class ErrorHandler {
                             callback.onHttpError(rex);
                         break;
                     case NETWORK:
-                        callback.onNetworkError((IOException) rex.getCause());
+                        callback.onNetworkError();
                         break;
                     case SERVER:
                         callback.onServerError("");

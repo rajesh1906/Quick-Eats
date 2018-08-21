@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.quickeats.BaseActivity;
 import com.quickeats.Network.APIS;
+import com.quickeats.R;
 import com.quickeats.activities.signin.SignInActivity;
 import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.shared.CallbackService;
@@ -14,7 +16,10 @@ import com.quickeats.shared.MvpBasePresenter;
 import com.quickeats.shared.MvpPresenter;
 import com.quickeats.shared.NetworkModule;
 import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
+import com.quickeats.shared.error.ErrorHandler;
+import com.quickeats.shared.error.RetrofitException;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -33,9 +38,13 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
         this.mLName = lName;
         this.mPhoneNumber = phoneNumber;
         this.mEmail = email;
-        if(checkValidation(fName,lName,phoneNumber,email)){
-            apiCalling();
+        if(BaseActivity.haveNetworkConnection(getActivity())) {
+            if (checkValidation(fName, lName, phoneNumber, email)) {
+                apiCalling();
 
+            }
+        }else{
+            callback.onNetworkError();
         }
     }
 
@@ -94,14 +103,16 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
                         Log.e("success", "<><" + response.body());
                         try{
                             ((CallbackService) getActivity()).callBackActivity();
+
                         }catch (Exception e){
-//                            RetrofitE
                             e.printStackTrace();
+
                         }
                     }
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
                         Log.e("fail", "<><" + t.getMessage());
+                        ErrorHandler.handle(t, callback);
                     }
                 });
     }
@@ -119,4 +130,26 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
         params.put("action",APIS.SIGNUP);
         return params;
     }
+
+    ErrorHandler.ErrorHandlerCallback callback = new ErrorHandler.ErrorHandlerCallback() {
+        @Override
+        public void onHttpError(RetrofitException e) {
+
+        }
+
+        @Override
+        public void onNetworkError() {
+            getView().showErrorMessage(getActivity().getResources().getString(R.string.error_generic_network_connection));
+        }
+
+        @Override
+        public void onServerError(String errorMessage) {
+            getView().showErrorMessage(getActivity().getResources().getString(R.string.error_generic_internal_server_error));
+        }
+
+        @Override
+        public void onUnrecoverableError(Throwable throwable) {
+
+        }
+    };
 }

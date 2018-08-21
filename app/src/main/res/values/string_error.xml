@@ -9,4 +9,8 @@
     <string name="error_generic_valid_fname">Please enter vaild First Name  </string>
     <string name="error_generic_valid_lname">Please enter vaild Last Name  </string>
     <string name="error_generic_valid_phone">Please enter vaild Phone Number </string>
+
+    <!--Common network connection-->
+    <string name="error_generic_network_connection">Please check Network Connection</string>
+    <string name="error_generic_internal_server_error">Internal Server Error</string>
 </resources>

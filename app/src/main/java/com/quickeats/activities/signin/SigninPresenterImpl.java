@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.quickeats.BaseActivity;
 import com.quickeats.Network.APIS;
+import com.quickeats.R;
 import com.quickeats.activities.ForgotPasswordActivity;
 import com.quickeats.activities.signup.SignUpActivity;
 import com.quickeats.shared.CallbackService;
@@ -14,6 +16,8 @@ import com.quickeats.shared.MvpBasePresenter;
 import com.quickeats.shared.NetworkModule;
 
 import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
+import com.quickeats.shared.error.ErrorHandler;
+import com.quickeats.shared.error.RetrofitException;
 import com.quickeats.utils.CommonValidations;
 
 import java.util.HashMap;
@@ -49,8 +53,12 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     public void handleLoginRequest(String email, String password, Object validation) {
         this.validations = (CommonValidations) validation;
         Log.e("coming to handler", "<>><");
-        if (checkValidation(email, password)) {
-            apiCall(email, password);
+        if(BaseActivity.haveNetworkConnection(getActivity())) {
+            if (checkValidation(email, password)) {
+                apiCall(email, password);
+            }
+        }else{
+            callback.onNetworkError();
         }
     }
 
@@ -114,4 +122,25 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
 
         return params;
     }
+    @SuppressLint("ResourceType")
+    ErrorHandler.ErrorHandlerCallback callback = new ErrorHandler.ErrorHandlerCallback() {
+        @Override
+        public void onHttpError(RetrofitException e) {
+
+        }
+        @Override
+        public void onNetworkError() {
+            getView().showErrorMessage(3);
+        }
+
+        @Override
+        public void onServerError(String errorMessage) {
+            getView().showErrorMessage(4);
+        }
+
+        @Override
+        public void onUnrecoverableError(Throwable throwable) {
+
+        }
+    };
 }

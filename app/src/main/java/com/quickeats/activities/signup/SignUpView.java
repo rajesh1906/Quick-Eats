@@ -6,6 +6,6 @@ import com.quickeats.shared.MvpView;
 
 public interface SignUpView extends MvpView<SignUpPresenter> {
     void showErrorMessage(@StringRes final int errorMessage);
-    void showEmailFieldError(boolean show);
+    void showErrorMessage(String message);
     void showPhoneNumberError();
 }

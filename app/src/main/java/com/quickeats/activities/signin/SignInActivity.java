@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SignInActivity extends MvpBaseActivity<SigninPresenter, AuthenticateComponent> implements SigninView,CallbackService {
+public class SignInActivity extends MvpBaseActivity<SigninPresenter, AuthenticateComponent> implements SigninView, CallbackService {
 
 
     @BindView(R.id.edt_email)
@@ -26,6 +26,7 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
     EditText edt_password;
     @Inject
     CommonValidations validations;
+
     @Override
     public int getLayout() {
         return R.layout.activity_singin;
@@ -67,8 +68,15 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
             case 2:
                 showToastMessage(getResources().getString(R.string.error_generic_valid_password));
                 break;
+            case 3:
+                showToastMessage(getResources().getString(R.string.error_generic_network_connection));
+                break;
+            case 4:
+                showToastMessage(getResources().getString(R.string.error_generic_internal_server_error));
+                break;
         }
     }
+
     @Override
     public void showEmailFieldError(boolean show) {
         if (!show) {
@@ -76,14 +84,14 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
         }
 
     }
+
     private void showToastMessage(String message) {
         Toast.makeText(SignInActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
 
-
     @Override
     public void callBackActivity() {
-        startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+        startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
     }
 }

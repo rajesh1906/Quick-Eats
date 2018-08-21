@@ -64,12 +64,11 @@ public class SignUpActivity extends MvpBaseActivity<SignUpPresenter,SignupCompon
                 showToastMessage(getResources().getString(R.string.error_generic_valid_email));
                 break;
         }
-
     }
 
     @Override
-    public void showEmailFieldError(boolean show) {
-
+    public void showErrorMessage(String message) {
+        showToastMessage(message);
     }
 
     @Override
