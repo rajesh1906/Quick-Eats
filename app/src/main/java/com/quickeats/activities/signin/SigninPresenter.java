@@ -7,4 +7,5 @@ public interface SigninPresenter extends MvpPresenter<SigninView> {
     void handleLoginRequest(String email, String password,Object validations);
     void handleLaunchSignUpscreen();
     void handleLaunchForgetScreen();
+    void setInjection(Object obj);
 }

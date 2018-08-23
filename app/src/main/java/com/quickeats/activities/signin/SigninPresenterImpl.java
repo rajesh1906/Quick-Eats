@@ -2,14 +2,14 @@ package com.quickeats.activities.signin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.quickeats.BaseActivity;
 import com.quickeats.Network.APIS;
-import com.quickeats.R;
-import com.quickeats.activities.ForgotPasswordActivity;
+import com.quickeats.activities.forgotpassword.ForgotPasswordActivity;
 import com.quickeats.activities.signup.SignUpActivity;
 import com.quickeats.shared.CallbackService;
 import com.quickeats.shared.MvpBasePresenter;
@@ -33,6 +33,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     Object validations;
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
+    Object sharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     public void handleLoginRequest(String email, String password, Object validation) {
         this.validations = validation;
         Log.e("coming to handler", "<>><");
+        Log.e("shared preference is", "<>><"+((SharedPreferences)sharedPreferences));
+
         if(BaseActivity.haveNetworkConnection(getActivity())) {
             if (checkValidation(email, password)) {
                 apiCall(email, password);
@@ -70,6 +73,11 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     @Override
     public void handleLaunchForgetScreen() {
         getActivity().startActivity(new Intent(getActivity(), ForgotPasswordActivity.class));
+    }
+
+    @Override
+    public void setInjection(Object obj) {
+        sharedPreferences = obj;
     }
 
     @SuppressLint("ResourceType")
@@ -140,6 +148,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
 
         @Override
         public void onUnrecoverableError(Throwable throwable) {
+
 
         }
     };

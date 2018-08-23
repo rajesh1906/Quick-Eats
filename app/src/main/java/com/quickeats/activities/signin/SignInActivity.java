@@ -1,7 +1,9 @@
 package com.quickeats.activities.signin;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
     EditText edt_password;
     @Inject
     CommonValidations validations;
+    @Inject
+    SharedPreferences sharedPreferences;
 
     @Override
     public int getLayout() {
@@ -39,9 +43,9 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
 
     @OnClick(R.id.tv_next)
     void submitDetails() {
-        String eamil = edt_email.getText().toString();
+        String email = edt_email.getText().toString();
         String password = edt_password.getText().toString();
-        getPresenter().handleLoginRequest(eamil, password, validations);
+        getPresenter().handleLoginRequest(email, password, validations);
     }
 
     @OnClick(R.id.txtsignup)
@@ -57,6 +61,8 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
     @Override
     protected void onCreateAfterSetContentView(Bundle savedInstanceState) {
         super.onCreateAfterSetContentView(savedInstanceState);
+        getPresenter().setInjection(sharedPreferences);
+//        Log.e("Shared Preference","<>><"+sharedPreferences);
     }
 
     @Override

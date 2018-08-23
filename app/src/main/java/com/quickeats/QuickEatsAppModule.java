@@ -1,6 +1,9 @@
 package com.quickeats;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.quickeats.utils.CommonValidations;
 
@@ -22,7 +25,11 @@ public class QuickEatsAppModule {
         return mApplication;
     }
 
-
+    @Singleton
+    @Provides
+    public SharedPreferences provideSharedPreferences() {
+        return PreferenceManager.getDefaultSharedPreferences(mApplication);
+    }
 
 
 
