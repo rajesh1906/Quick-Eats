@@ -1,4 +1,4 @@
-package com.quickeats;
+package com.quickeats.di;
 
 
 import com.quickeats.activities.signin.SignAppModule;

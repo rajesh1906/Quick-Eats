@@ -1,4 +1,4 @@
-package com.quickeats;
+package com.quickeats.di;
 
 import android.app.Application;
 import android.content.Context;

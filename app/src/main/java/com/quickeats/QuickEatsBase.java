@@ -2,6 +2,8 @@ package com.quickeats;
 
 import android.app.Application;
 
+import com.quickeats.di.QuickEatComponent;
+
 public abstract class QuickEatsBase extends Application {
     private    QuickEatComponent quickEatComponent;
     private static QuickEatsBase sInstance;

@@ -1,10 +1,8 @@
-package com.quickeats;
+package com.quickeats.di;
 
-import com.quickeats.Network.RetrofitClient;
 import com.quickeats.activities.forgotpassword.ForgotPasswordModule;
 import com.quickeats.activities.signin.SignAppModule;
 import com.quickeats.activities.signup.SignUpModule;
-import com.quickeats.di.ForgotPasswordComponet;
 import com.quickeats.shared.NetworkModule;
 
 import javax.inject.Singleton;

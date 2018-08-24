@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.quickeats.AuthenticateComponent;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
-import com.quickeats.SignupComponent;
-import com.quickeats.activities.signin.SignInActivity;
+import com.quickeats.di.SignupComponent;
 import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.shared.CallbackService;
 

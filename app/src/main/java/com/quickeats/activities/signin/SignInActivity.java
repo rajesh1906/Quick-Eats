@@ -3,11 +3,10 @@ package com.quickeats.activities.signin;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.quickeats.AuthenticateComponent;
+import com.quickeats.di.AuthenticateComponent;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
 import com.quickeats.dashboard.DashboardActivity;
@@ -98,5 +97,6 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
     @Override
     public void callBackActivity() {
         startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+        finish();
     }
 }

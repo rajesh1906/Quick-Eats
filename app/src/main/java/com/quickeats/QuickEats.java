@@ -1,10 +1,10 @@
 package com.quickeats;
 
-import android.app.Application;
-
 import com.quickeats.Network.APIS;
+import com.quickeats.di.DaggerQuickEatComponent;
+import com.quickeats.di.QuickEatComponent;
+import com.quickeats.di.QuickEatsAppModule;
 import com.quickeats.shared.NetworkModule;
-import com.quickeats.utils.CommonValidationImpl;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

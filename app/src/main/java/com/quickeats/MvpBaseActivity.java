@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.quickeats.di.QuickEatComponent;
 import com.quickeats.shared.MvpPresenter;
 import com.quickeats.shared.MvpView;
 
