@@ -79,7 +79,7 @@ public class SignUpActivity extends MvpBaseActivity<SignUpPresenter,SignupCompon
     }
 
     @Override
-    public void callBackActivity() {
+    public void callBackActivity(String response) {
         startActivity(new Intent(this, DashboardActivity.class));
         finish();
     }

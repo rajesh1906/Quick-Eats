@@ -31,4 +31,6 @@ public interface ApiService  {
 
     @GET
     Observable<String> getData(@Url String action, @QueryMap Map<String, String> fields);
+    @GET
+    Observable<Object> getDataNew(@Url String action, @QueryMap Map<String, String> fields);
 }

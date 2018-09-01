@@ -40,7 +40,7 @@ public class ErrorHandler {
             e.printStackTrace();
         }
 
-        ((CallbackService) activity).callBackActivity();
+//        ((CallbackService) activity).callBackActivity();
 
     }
 

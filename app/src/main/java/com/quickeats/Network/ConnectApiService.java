@@ -6,5 +6,5 @@ package com.quickeats.Network;
 
 public interface ConnectApiService {
 
-   public ApiService getApiService();
+    ApiService getApiService();
 }

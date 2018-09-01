@@ -9,13 +9,15 @@ import android.util.Log;
 
 import com.quickeats.BaseActivity;
 import com.quickeats.Network.APIS;
+import com.quickeats.Network.ApiService;
+import com.quickeats.Network.ConnectNetwork;
 import com.quickeats.activities.forgotpassword.ForgotPasswordActivity;
 import com.quickeats.activities.signup.SignUpActivity;
 import com.quickeats.shared.CallbackService;
 import com.quickeats.shared.MvpBasePresenter;
 import com.quickeats.shared.NetworkModule;
-
 import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
+import com.quickeats.shared.endpoint.ReactiveEndPoint;
 import com.quickeats.shared.error.ErrorHandler;
 import com.quickeats.shared.error.RetrofitException;
 import com.quickeats.utils.CommonValidations;
@@ -33,7 +35,13 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     Object validations;
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
-    Object sharedPreferences;
+//    Object sharedPreferences;
+    ApiService apiService;
+    ConnectNetwork getConnectNetwork;
+
+    public SigninPresenterImpl(ConnectNetwork connectNetwork){
+        this.getConnectNetwork = connectNetwork;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,12 +61,21 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     @Override
     public void handleLoginRequest(String email, String password, Object validation) {
         this.validations = validation;
-        Log.e("coming to handler", "<>><");
-        Log.e("shared preference is", "<>><"+((SharedPreferences)sharedPreferences));
+        Log.e("coming to handler", "<>><"+getConnectNetwork);
+//        Log.e("shared preference is", "<>><"+sharedPreferences);
 
         if(BaseActivity.haveNetworkConnection(getActivity())) {
             if (checkValidation(email, password)) {
-                apiCall(email, password);
+//                apiCall(email, password);
+                getView().showProgressDialog();
+              if( new ReactiveEndPoint(getActivity(),APIS.SIGNIN,getParams(email,password)).getEndPoints(getConnectNetwork)){
+                  getView().hideProgressDialog();
+              }else{
+                  getView().hideProgressDialog();
+//                  ErrorHandler.handle();
+              }
+
+//                subcrition(email,password);
             }
         }else{
             callback.onNetworkError();
@@ -76,8 +93,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     }
 
     @Override
-    public void setInjection(Object obj) {
-        sharedPreferences = obj;
+    public void setInjection(HashMap<String,Object> objlist) {
     }
 
     @SuppressLint("ResourceType")
@@ -111,7 +127,7 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
                     public void onResponse(Call<String> call, Response<String> response) {
                         getView().hideProgressDialog();
                         Log.e("success", "<><" + response.body());
-                        ((CallbackService) getActivity()).callBackActivity();
+                        ((CallbackService) getActivity()).callBackActivity(response.body());
 
                     }
 
@@ -152,4 +168,20 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
 
         }
     };
+
+//    @SuppressLint("CheckResult")
+//    private void subcrition(String email, String password){
+//        apiService.getDataNew(APIS.SIGNIN,getParams(email,password))
+//                .compose(DefaultRxSchedulersApplier.applySchedulers())
+//                .subscribe(result->{
+//                   getView().hideProgressDialog();
+//                    handlingResult(result);
+//                },throwable -> ErrorHandler.handle(throwable,callback));
+//    }
+
+    private void handlingResult(Object result) {
+        Log.e("result is ","<><>"+result);
+    }
+
+
 }

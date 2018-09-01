@@ -1,6 +1,13 @@
 package com.quickeats.shared;
 
+import android.content.Context;
+
+import com.quickeats.Network.ConnectNetwork;
+import com.quickeats.Network.ConnectNetworkImpl;
 import com.quickeats.Network.RetrofitClient;
+import com.quickeats.shared.endpoint.ReactiveEndPoint;
+
+import java.util.Map;
 
 import javax.inject.Singleton;
 
@@ -21,5 +28,13 @@ public class NetworkModule {
     public RetrofitClient provideRetrofit() {
         return RetrofitClient.getInstance();
     }
+
+
+    @Provides
+    @Singleton
+    public ConnectNetwork networkConnection(){
+        return new ConnectNetworkImpl();
+    }
+
 
 }

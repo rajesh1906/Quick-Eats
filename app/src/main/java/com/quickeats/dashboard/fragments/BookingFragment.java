@@ -24,9 +24,11 @@ import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
 import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
+import com.quickeats.activities.signin.SigninPresenter;
 import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.dashboard.MenuCallback;
 import com.quickeats.dashboard.model.Cities;
+import com.quickeats.shared.CallbackService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,7 +38,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class BookingFragment extends Fragment {
+public class BookingFragment extends Fragment implements CallbackService {
 
     View mView;
     @BindView(R.id.eatline)
@@ -136,6 +138,11 @@ public class BookingFragment extends Fragment {
         edtSearch.setText("");
     }
 
+    @Override
+    public void callBackActivity(String response) {
+
+    }
+
     private class CustomWatcher implements TextWatcher {
 
         private View view;
@@ -211,6 +218,8 @@ public class BookingFragment extends Fragment {
 
             }
         });
+
+
     }
 
     private Map<String, String> getParams(String coming_from)   {

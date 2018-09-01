@@ -3,15 +3,20 @@ package com.quickeats.activities.signin;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.quickeats.Network.ConnectNetwork;
 import com.quickeats.di.AuthenticateComponent;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
 import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.shared.CallbackService;
+import com.quickeats.shared.NetworkModule;
 import com.quickeats.utils.CommonValidations;
+
+import java.util.HashMap;
 
 import javax.inject.Inject;
 
@@ -60,7 +65,6 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
     @Override
     protected void onCreateAfterSetContentView(Bundle savedInstanceState) {
         super.onCreateAfterSetContentView(savedInstanceState);
-        getPresenter().setInjection(sharedPreferences);
 //        Log.e("Shared Preference","<>><"+sharedPreferences);
     }
 
@@ -95,7 +99,7 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
 
 
     @Override
-    public void callBackActivity() {
+    public void callBackActivity(String response) {
         startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
         finish();
     }

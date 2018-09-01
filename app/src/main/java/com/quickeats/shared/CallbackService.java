@@ -1,5 +1,5 @@
 package com.quickeats.shared;
 
 public interface CallbackService {
-    void callBackActivity();
+    void callBackActivity(String response);
 }

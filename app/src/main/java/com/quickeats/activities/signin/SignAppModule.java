@@ -1,5 +1,6 @@
 package com.quickeats.activities.signin;
 
+import com.quickeats.Network.ConnectNetwork;
 import com.quickeats.utils.CommonValidations;
 
 import javax.inject.Singleton;
@@ -12,8 +13,8 @@ import dagger.Subcomponent;
 public class SignAppModule {
 
     @Provides
-    SigninPresenter getSigninPresenter() {
-        return new SigninPresenterImpl();
+    SigninPresenter getSigninPresenter(ConnectNetwork connectNetwork) {
+        return new SigninPresenterImpl(connectNetwork);
     }
 
     @Provides
