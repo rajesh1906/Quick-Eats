@@ -17,6 +17,7 @@ import com.quickeats.shared.CallbackService;
 import com.quickeats.shared.MvpBasePresenter;
 import com.quickeats.shared.NetworkModule;
 import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
+import com.quickeats.shared.endpoint.EndPointService;
 import com.quickeats.shared.endpoint.ReactiveEndPoint;
 import com.quickeats.shared.error.ErrorHandler;
 import com.quickeats.shared.error.RetrofitException;
@@ -35,7 +36,6 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     Object validations;
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
-//    Object sharedPreferences;
     ApiService apiService;
     ConnectNetwork getConnectNetwork;
 
@@ -62,12 +62,12 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
     public void handleLoginRequest(String email, String password, Object validation) {
         this.validations = validation;
         Log.e("coming to handler", "<>><"+getConnectNetwork);
-//        Log.e("shared preference is", "<>><"+sharedPreferences);
 
         if(BaseActivity.haveNetworkConnection(getActivity())) {
             if (checkValidation(email, password)) {
 //                apiCall(email, password);
                 getView().showProgressDialog();
+
               if( new ReactiveEndPoint(getActivity(),APIS.SIGNIN,getParams(email,password)).getEndPoints(getConnectNetwork)){
                   getView().hideProgressDialog();
               }else{

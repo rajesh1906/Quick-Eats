@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.quickeats.R;
-import com.quickeats.dashboard.fragments.BookFragment;
-import com.quickeats.dashboard.fragments.EatsInFragment;
-import com.quickeats.restaurantdetail.LoadFragment;
+import com.quickeats.dashboard.fragments.booking.EatsInFragment;
 
 /**
  * Created by Rajesh kumar on 24-06-2018.

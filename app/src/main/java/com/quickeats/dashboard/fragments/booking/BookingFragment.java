@@ -1,4 +1,4 @@
-package com.quickeats.dashboard.fragments;
+package com.quickeats.dashboard.fragments.booking;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,9 +24,9 @@ import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
 import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
-import com.quickeats.activities.signin.SigninPresenter;
 import com.quickeats.dashboard.DashboardActivity;
 import com.quickeats.dashboard.MenuCallback;
+import com.quickeats.dashboard.fragments.Collections;
 import com.quickeats.dashboard.model.Cities;
 import com.quickeats.shared.CallbackService;
 
@@ -86,7 +86,7 @@ public class BookingFragment extends Fragment implements CallbackService {
         eatline.setVisibility(View.GONE);
         collectionine.setVisibility(View.VISIBLE);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.container,Collections.newInstance());
+        ft.replace(R.id.container, Collections.newInstance());
         ft.commit();
     }
     @OnClick(R.id.imgmenu)
@@ -110,7 +110,7 @@ public class BookingFragment extends Fragment implements CallbackService {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 city_id = al_city_id.get(position);
                 relsearching.setVisibility(View.GONE);
-                ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
+//                ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
                 txtlocation.setText(city_items.get(position));
             }
         });
@@ -120,7 +120,7 @@ public class BookingFragment extends Fragment implements CallbackService {
     void enableSearching(){
         relsearching.setVisibility(View.VISIBLE);
         edtSearch.requestFocus();
-        ((DashboardActivity)getActivity()).openKeyboard(edtSearch);
+//        ((DashboardActivity)getActivity()).openKeyboard(edtSearch);
 
     }
     @OnClick(R.id.relmain)
@@ -130,7 +130,7 @@ public class BookingFragment extends Fragment implements CallbackService {
     @OnClick(R.id.imgback)
     void searchBackImpl(){
         relsearching.setVisibility(View.GONE);
-        ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
+//        ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
     }
     @OnClick(R.id.img_delete)
     void searchDeleteImpl(){

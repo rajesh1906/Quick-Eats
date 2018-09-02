@@ -1,7 +1,6 @@
 package com.quickeats.NavigationItems;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,8 +8,6 @@ import android.support.v4.view.ViewPager;
 
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
-import com.quickeats.dashboard.fragments.Collections;
-import com.quickeats.dashboard.fragments.EatsInFragment;
 import com.quickeats.utils.ViewPagerAdapter;
 
 import butterknife.BindView;

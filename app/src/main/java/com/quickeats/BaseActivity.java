@@ -30,29 +30,32 @@ import com.quickeats.NavigationItems.ReferFriendActivity;
 import com.quickeats.NavigationItems.SavedAddressActivity;
 import com.quickeats.customviews.CustomDrawerLayout;
 import com.quickeats.customviews.ItemAdapter;
+import com.quickeats.dashboard.DashboardModule;
+import com.quickeats.dashboard.DashboardPresenter;
+import com.quickeats.dashboard.fragments.booking.BookingModule;
+import com.quickeats.di.DashBoardComponet;
 import com.quickeats.utils.Dashboard_items;
 
-public abstract class BaseActivity extends MvpBaseActivity {
+public abstract class BaseActivity extends MvpBaseActivity<DashboardPresenter,DashBoardComponet> {
     protected abstract int getLayoutResourceId();
 
-    public TextView app_title_txt;
-    private String app_title;
     protected Toolbar mToolbar;
     public CustomDrawerLayout mDrawerLayout;
    protected ActionBarDrawerToggle drawerToggle;
     ListView mainlist;
     ItemAdapter adapter;
-    protected ImageView search_icon, filters_icon, close_icon,img_delete;
-   protected AutoCompleteTextView edtSearch;
+    protected ImageView search_icon, filters_icon, close_icon;
 
     Button btn_date;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public int getLayout() {
+        return R.layout.activity_base;
+    }
 
-        // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+    @Override
+    protected void onCreateAfterSetContentView(Bundle savedInstanceState) {
+        super.onCreateAfterSetContentView(savedInstanceState);
         mainlist = (ListView) findViewById(R.id.mainlist);
         mDrawerLayout = (CustomDrawerLayout) findViewById(R.id.drawer_layout);
         search_icon = (ImageView) findViewById(R.id.search_icon);
@@ -79,7 +82,8 @@ public abstract class BaseActivity extends MvpBaseActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.lay_activity_base);
         LayoutInflater inflater = (LayoutInflater)
                 this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        DrawerLayout childAt = (DrawerLayout) layout.getChildAt(0);
+//        DrawerLayout childAt = (DrawerLayout) layout.getChildAt(0);
+        DrawerLayout childAt = (DrawerLayout) findViewById(R.id.drawer_layout);
         childAt.addView(inflater.inflate(getLayoutResourceId(), null), 0);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
@@ -122,7 +126,7 @@ public abstract class BaseActivity extends MvpBaseActivity {
                         break;
                     case 5:
                         startActivity(new Intent(BaseActivity.this, FavoretiesActivity.class));
-                       // new Common_methods(BaseActivity.this).popup(BaseActivity.this,"logout");
+                        // new Common_methods(BaseActivity.this).popup(BaseActivity.this,"logout");
                         break;
                     case 6:
                         startActivity(new Intent(BaseActivity.this, HelpActivity.class));
@@ -131,7 +135,6 @@ public abstract class BaseActivity extends MvpBaseActivity {
                 navigationListProcess();
             }
         });
-
     }
 
     private void setUpNavDrawer() {

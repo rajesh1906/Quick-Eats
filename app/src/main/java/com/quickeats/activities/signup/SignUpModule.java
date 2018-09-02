@@ -1,5 +1,7 @@
 package com.quickeats.activities.signup;
 
+import com.quickeats.Network.ConnectNetwork;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -7,7 +9,7 @@ import dagger.Provides;
 public class SignUpModule {
 
     @Provides
-    SignUpPresenter getPresenter(){
-        return new SignUpPresneterImpl();
+    SignUpPresenter getPresenter(ConnectNetwork connectNetwork){
+        return new SignUpPresneterImpl(connectNetwork);
     }
 }

@@ -9,23 +9,19 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.quickeats.BaseActivity;
-import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
-import com.quickeats.dashboard.fragments.BookFragment;
-import com.quickeats.dashboard.fragments.BookingFragment;
+import com.quickeats.dashboard.fragments.booking.BookFragment;
+import com.quickeats.dashboard.fragments.booking.BookingFragment;
 import com.quickeats.dashboard.fragments.OffersFragment;
-import com.quickeats.dashboard.fragments.OrderFragment;
 import com.quickeats.dashboard.fragments.ProfileFragment;
 import com.quickeats.dashboard.fragments.ScanFragment;
+import com.quickeats.dashboard.fragments.booking.BookingModule;
+import com.quickeats.di.DashBoardComponet;
 import com.quickeats.restaurantdetail.FoodBeverageFragment;
 import com.quickeats.restaurantdetail.LoadFragment;
 import com.quickeats.utils.DialogManage;
@@ -52,8 +48,8 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
     }
 
     @Override
-    protected Object setupActivityComponent() {
-        return null;
+    protected DashBoardComponet setupActivityComponent() {
+        return getApplicationComponent().plus(new DashboardModule());
     }
 
     @Override
@@ -61,13 +57,20 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
         return R.layout.activity_main;
     }
 
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        ButterKnife.bind(this);
+////        presenter = new DashboardImp(this);
+////        presenter.initialSetUp();
+//        instance = this;
+//        implementBottomSheet();
+//    }
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-        presenter = new DashboardImp(this);
-        presenter.initialSetUp();
-        instance = this;
+    protected void onCreateAfterSetContentView(Bundle savedInstanceState) {
+//        super.onCreateAfterSetContentView(savedInstanceState);
+        initilizeViews();
         implementBottomSheet();
     }
 
@@ -87,11 +90,6 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 
 
     @Override
-    public Activity getActivityFromView() {
-        return null;
-    }
-
-    @Override
     public void showProgressDialog() {
 
     }
@@ -101,15 +99,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 
     }
 
-    @Override
-    public void setupPresenter(Object presenter) {
 
-    }
-
-    @Override
-    public String getViewIdentity() {
-        return null;
-    }
 
     public void initilizeViews(){
         Fragment selectedFragment = null;

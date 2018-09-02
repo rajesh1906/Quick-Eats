@@ -20,7 +20,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
 @Singleton
-public class ReactiveEndPoint {
+public class ReactiveEndPoint  {
     Context context;
     String action;
     Map<String, String> mParams;
@@ -70,6 +70,7 @@ public class ReactiveEndPoint {
 
         return status;
     }
+
 
 
 }

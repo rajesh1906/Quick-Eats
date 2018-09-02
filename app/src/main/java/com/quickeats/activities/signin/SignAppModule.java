@@ -1,6 +1,7 @@
 package com.quickeats.activities.signin;
 
 import com.quickeats.Network.ConnectNetwork;
+import com.quickeats.shared.endpoint.EndPointService;
 import com.quickeats.utils.CommonValidations;
 
 import javax.inject.Singleton;

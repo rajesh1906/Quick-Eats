@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.quickeats.BaseActivity;
 import com.quickeats.Network.APIS;
+import com.quickeats.Network.ConnectNetwork;
 import com.quickeats.R;
 import com.quickeats.activities.signin.SignInActivity;
 import com.quickeats.dashboard.DashboardActivity;
@@ -32,6 +33,7 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
     String mFName,mLName,mPhoneNumber,mEmail;
+    ConnectNetwork connectNetwork;
     @Override
     public void handleSignUpRequest(String fName, String lName, String phoneNumber, String email) {
         this.mFName = fName;
@@ -40,12 +42,17 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
         this.mEmail = email;
         if(BaseActivity.haveNetworkConnection(getActivity())) {
             if (checkValidation(fName, lName, phoneNumber, email)) {
-                apiCalling();
+//                apiCalling();
+//                if()
 
             }
         }else{
             callback.onNetworkError();
         }
+    }
+
+    public  SignUpPresneterImpl(ConnectNetwork connectNetwork){
+        this.connectNetwork = connectNetwork;
     }
 
     @Override

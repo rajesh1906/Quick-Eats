@@ -1,7 +1,7 @@
 package com.quickeats.shared.endpoint;
 
-import com.quickeats.shared.NetworkModule_ProvideRetrofitFactory;
+import com.quickeats.Network.ConnectNetwork;
 
 public interface EndPointService {
-    void getEndPoint(NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory);
+    boolean getEndPoint(ConnectNetwork connectNetwork);
 }

@@ -7,12 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.quickeats.R;
-import com.quickeats.dashboard.adapter.RestaurentAdapter;
-import com.quickeats.dashboard.fragments.EatsInFragment;
-import com.quickeats.restaurantdetail.FoodBeverageFragment;
 import com.quickeats.restaurantdetail.LoadFragment;
 
 /**

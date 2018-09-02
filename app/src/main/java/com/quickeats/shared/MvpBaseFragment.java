@@ -63,7 +63,7 @@ public abstract class MvpBaseFragment<P extends MvpPresenter> extends Fragment i
 
     }
     @Override
-    public final void onViewCreated(View view, Bundle savedInstanceState) {
+    public  void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Do not allow overriding this methods. Use onFragmentViewCreated() instead
     }
@@ -115,5 +115,13 @@ public abstract class MvpBaseFragment<P extends MvpPresenter> extends Fragment i
         super.onDestroyView();
     }
 
+    @Override
+    public void setupPresenter(P presenter) {
+        mPresenter = presenter;
+    }
 
+    @Override
+    public String getViewIdentity() {
+        return mViewIdentity;
+    }
 }
