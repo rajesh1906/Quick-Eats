@@ -34,6 +34,7 @@
                 android:text="Open now"
                 android:textColor="@color/colorPrimary"/>
             <TextView
+                android:id="@+id/txt_resname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dallas House"/>

@@ -10,5 +10,6 @@ package com.quickeats.Network;
     public static String Category="GettingCateogry";
     public static String SIGNIN = "LogingGettingData";
     public static String SIGNUP = "LoginSave";
+    public static String DEFAULT_LOADING_ITEMS = "DefultRestaurantLoading";
 
 }
