@@ -9,6 +9,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,13 +17,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.quickeats.MvpBaseActivity;
+import com.quickeats.Network.APIResponse;
+import com.quickeats.Network.APIS;
+import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
 import com.quickeats.checkout.CheckoutActivity;
 import com.quickeats.dashboard.fragments.ProfileFragment;
 import com.quickeats.restaurantdetail.LoadFragment.ImplItems;
+import com.quickeats.restaurantdetail.model.MenuItemsRoot;
+import com.quickeats.restaurantdetail.model.Menudetail;
 import com.quickeats.restaurantinfo.RestaurentInfo;
 import com.quickeats.utils.ViewPagerAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +54,7 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     @BindView(R.id.txtnumberitems)
     TextView txtnumberitems;
     BottomSheetDialog mBottomSheetDialog;
-
+    int res_id;
     @Override
     public int getLayout() {
         return R.layout.restaurentdetailfragment;
@@ -59,10 +69,13 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setupViewPager(mViewPager);
+
         instance = this;
-        tabs.setupWithViewPager(mViewPager);
-        implementBottomSheet();
+
+         res_id = getIntent().getExtras().getInt("restaurant_id");
+        Log.e("res_id","<><>"+res_id);
+        callApi();
+
 
     }
 
@@ -90,12 +103,14 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
         });
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager(ViewPager viewPager, ArrayList<Menudetail> items) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-        adapter.addFragment(new FoodBeverageFragment(), "All");
-        adapter.addFragment(new FoodBeverageFragment(), "Veg/Vegan");
-        adapter.addFragment(new FoodBeverageFragment(), "Drinks");
-        adapter.addFragment(new FoodBeverageFragment(), "Desserts");
+        for(int i=0;i<items.size();i++) {
+            adapter.addFragment(new FoodBeverageFragment(), items.get(i).getMenuname());
+//            adapter.addFragment(new FoodBeverageFragment(), "Veg/Vegan");
+//            adapter.addFragment(new FoodBeverageFragment(), "Drinks");
+//            adapter.addFragment(new FoodBeverageFragment(), "Desserts");
+        }
         viewPager.setAdapter(adapter);
     }
 
@@ -151,5 +166,37 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     @Override
     public String getViewIdentity() {
         return null;
+    }
+
+
+    private void callApi(){
+        RetrofitClient.getInstance().getEndPoint(this,"Show").getResult(getParams(), new APIResponse() {
+            @Override
+            public void onSuccess(String res) {
+                Log.e("success","<><>"+res);
+                MenuItemsRoot root = new Gson().fromJson(res,MenuItemsRoot.class);
+                if(root.getStatus().equalsIgnoreCase("successfully")){
+                    setupViewPager(mViewPager,root.getMenudetails());
+                    tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+                    tabs.setupWithViewPager(mViewPager);
+                    implementBottomSheet();
+                }
+            }
+
+            @Override
+            public void onFailure(String res) {
+                Log.e("failure","<><>"+res);
+
+            }
+        });
+    }
+
+
+    private HashMap<String,String > getParams(){
+        HashMap<String,String > params= new HashMap<>();
+        params.put("RestaurantId",""+res_id);
+        params.put("action", APIS.MENU_DETAILS);
+        return params;
+
     }
 }

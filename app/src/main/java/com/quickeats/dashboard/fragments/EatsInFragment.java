@@ -87,8 +87,10 @@ public class EatsInFragment extends Fragment implements LoadFragment {
     }
 
     @Override
-    public void load() {
-        startActivity(new Intent(getActivity(), RestaurentActivity.class));
+    public void load(int id) {
+        Intent intent = new Intent(getActivity(), RestaurentActivity.class);
+        intent.putExtra("restaurant_id",id);
+        startActivity(intent);
     }
 
 

@@ -5,7 +5,7 @@ package com.quickeats.dashboard.fragments.model;
  */
 
 public class RestaurantData {
-    private String Res_id;
+    private int Res_id;
 
     private String restaurantname;
 
@@ -19,12 +19,12 @@ public class RestaurantData {
 
     private String Currency;
 
-    public String getRes_id ()
+    public int getRes_id ()
     {
         return Res_id;
     }
 
-    public void setRes_id (String Res_id)
+    public void setRes_id (int Res_id)
     {
         this.Res_id = Res_id;
     }

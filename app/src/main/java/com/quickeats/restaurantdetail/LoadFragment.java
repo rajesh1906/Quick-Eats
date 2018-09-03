@@ -5,7 +5,7 @@ package com.quickeats.restaurantdetail;
  */
 
 public interface LoadFragment {
-    void load();
+    void load(int id);
     interface ImplItems{
         void getItemPosition(int position);
     }

@@ -70,7 +70,7 @@ public class RestaurentAdapter extends RecyclerView.Adapter<RestaurentAdapter.My
             holder.relItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((EatsInFragment)fragment).load();
+                    ((EatsInFragment)fragment).load(restaurantData.get(position).getRes_id());
                 }
             });
     }
