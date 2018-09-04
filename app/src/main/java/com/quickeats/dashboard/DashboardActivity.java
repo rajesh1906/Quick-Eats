@@ -138,7 +138,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
                             case R.id.action_item2:
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
-                                selectedFragment = FoodBeverageFragment.newInstance();
+                                selectedFragment = FoodBeverageFragment.newInstance(1,0);
                                 transaction2.replace(R.id.frame_layout, selectedFragment);
                                 transaction2.addToBackStack("foodFragment");
                                 transaction2.commit();

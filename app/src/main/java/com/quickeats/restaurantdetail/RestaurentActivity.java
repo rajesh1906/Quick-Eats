@@ -106,10 +106,7 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     private void setupViewPager(ViewPager viewPager, ArrayList<Menudetail> items) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         for(int i=0;i<items.size();i++) {
-            adapter.addFragment(new FoodBeverageFragment(), items.get(i).getMenuname());
-//            adapter.addFragment(new FoodBeverageFragment(), "Veg/Vegan");
-//            adapter.addFragment(new FoodBeverageFragment(), "Drinks");
-//            adapter.addFragment(new FoodBeverageFragment(), "Desserts");
+            adapter.addFragment(FoodBeverageFragment.newInstance(res_id,Integer.parseInt(items.get(i).getMenuid())), items.get(i).getMenuname());
         }
         viewPager.setAdapter(adapter);
     }
