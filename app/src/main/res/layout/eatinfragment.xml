@@ -26,11 +26,25 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/settings"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imgSettings">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgSettings"
+
         android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/txt_no_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:layout_centerHorizontal="true"
+       android:layout_centerInParent="true"
+        android:visibility="visible"
+        android:text="No Restaurants found"/>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -73,7 +73,7 @@ public class BookFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(EatsInFragment.newInstance(), "EAT IN");
+        adapter.addFragment(EatsInFragment.newInstance("8"), "EAT IN");
         adapter.addFragment(new Collections(), "COLLECTION");
         viewPager.setAdapter(adapter);
     }

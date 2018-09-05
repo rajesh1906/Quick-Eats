@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -41,11 +42,16 @@ public class EatsInFragment extends Fragment implements LoadFragment {
     @BindView(R.id.recyclerview)
     RecyclerView mrecyclerView;
     private boolean showuser=true;
-
+    String city_id = "8";
+    @BindView(R.id.txt_no_res)
+    TextView txt_no_res;
 
     private static String TAG = EatsInFragment.class.getName();
-    public static EatsInFragment newInstance() {
+    public static EatsInFragment newInstance(String  city_id) {
         EatsInFragment fragment = new EatsInFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("city_id",city_id);
+        fragment.setArguments(bundle);
         return fragment;
     }
     @Nullable
@@ -59,25 +65,26 @@ public class EatsInFragment extends Fragment implements LoadFragment {
             showuser=false;
 //            mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
         }
+
         return mView;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        city_id = getArguments().getString("city_id");
         fetchData();
 
     }
 
-//    @Override
-//    public void setUserVisibleHint(boolean isVisibleToUser) {
-//        super.setUserVisibleHint(isVisibleToUser);
-//        if(isVisibleToUser&&!showuser){
-//
-//            Toast.makeText(getActivity(),"uservisible ",Toast.LENGTH_SHORT).show();
-//            mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this));
-//        }
-//    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+
+
+        }
+    }
 
     @OnClick (R.id.imgSettings)
     void settingClick(){
@@ -101,7 +108,12 @@ public class EatsInFragment extends Fragment implements LoadFragment {
                 Log.e("default items","<><"+res);
                 RootItems items = new Gson().fromJson(res,RootItems.class);
                 if(items.getStatus().equals("successfully")){
-                    mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this,items.getRestaurantData(),getActivity()));
+                    if(items.getRestaurantData().size()!=0) {
+                        txt_no_res.setVisibility(View.GONE);
+                        mrecyclerView.setAdapter(new RestaurentAdapter(EatsInFragment.this, items.getRestaurantData(), getActivity()));
+                    }else{
+                        txt_no_res.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 
@@ -117,7 +129,7 @@ public class EatsInFragment extends Fragment implements LoadFragment {
     private HashMap<String ,String> getparams(){
         HashMap<String ,String> params = new HashMap<>();
         params.put("action", APIS.DEFAULT_LOADING_ITEMS);
-        params.put("CityId", ""+8);
+        params.put("CityId", city_id);
         params.put("typeofways", "Food");
         params.put("foodandbeverage", "EatIn");
         params.put("FlagSlNo", ""+0);

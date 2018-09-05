@@ -67,7 +67,7 @@ public class BookingFragment extends Fragment implements CallbackService {
         mView = inflater.inflate(R.layout.bookingfragment,container,false);
         ButterKnife.bind(this,mView);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.container,EatsInFragment.newInstance());
+        ft.replace(R.id.container,EatsInFragment.newInstance("8"));
         ft.commit();
         return mView;
     }
@@ -77,7 +77,7 @@ public class BookingFragment extends Fragment implements CallbackService {
         eatline.setVisibility(View.VISIBLE);
         collectionine.setVisibility(View.GONE);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.container,EatsInFragment.newInstance());
+        ft.replace(R.id.container,EatsInFragment.newInstance("8"));
         ft.commit();
     }
 
@@ -109,9 +109,14 @@ public class BookingFragment extends Fragment implements CallbackService {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 city_id = al_city_id.get(position);
+                Log.e("City id is ","<><><"+city_id);
+
                 relsearching.setVisibility(View.GONE);
                 ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
                 txtlocation.setText(city_items.get(position));
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.container,EatsInFragment.newInstance(city_id));
+                ft.commit();
             }
         });
     }
