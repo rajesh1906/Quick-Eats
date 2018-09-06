@@ -8,7 +8,7 @@
     <string name="tablenumber">Please Enter Your Table Number</string>
     <string name="selfservice">Self Service - I will collect the order from the counter</string>
 
-    <string name="email">Email</string>
+    <string name="email">Email/Username</string>
     <string name="password">Password</string>
     <string name="str_login">LOGIN</string>
     <string name="str_submit">Submit</string>

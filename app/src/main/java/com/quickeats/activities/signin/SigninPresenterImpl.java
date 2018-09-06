@@ -103,10 +103,16 @@ public class SigninPresenterImpl extends MvpBasePresenter<SigninView> implements
         if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
             validation = false;
             getView().showErrorMessage(1);
-        } else if (!((CommonValidations)validations).emailValidation(email)) {
-            validation = false;
-            getView().showEmailFieldError(false);
-        } else if (TextUtils.isEmpty(password)) {
+        }else if(email.contains("@")){
+            if (!((CommonValidations)validations).emailValidation(email)) {
+                validation = false;
+                getView().showEmailFieldError(false);
+            }else  if (TextUtils.isEmpty(password)) {
+                validation = false;
+                getView().showErrorMessage(2);
+            }
+        }
+        else if (TextUtils.isEmpty(password)) {
             validation = false;
             getView().showErrorMessage(2);
         }
