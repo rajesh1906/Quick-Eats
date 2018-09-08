@@ -31,15 +31,16 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
 
 
     NetworkModule_ProvideRetrofitFactory networkModule_provideRetrofitFactory;
-    String mFName,mLName,mPhoneNumber,mEmail;
+    String mFName,mLName,mPhoneNumber,mEmail,password;
     @Override
-    public void handleSignUpRequest(String fName, String lName, String phoneNumber, String email) {
+    public void handleSignUpRequest(String fName, String lName, String phoneNumber, String email,String password) {
         this.mFName = fName;
         this.mLName = lName;
         this.mPhoneNumber = phoneNumber;
         this.mEmail = email;
+        this.password = password;
         if(BaseActivity.haveNetworkConnection(getActivity())) {
-            if (checkValidation(fName, lName, phoneNumber, email)) {
+            if (checkValidation(fName, lName, phoneNumber, email,password)) {
                 apiCalling();
 
             }
@@ -71,7 +72,7 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
     }
 
     @SuppressLint("ResourceType")
-    private boolean checkValidation(String fName, String lName, String phoneNumber, String email){
+    private boolean checkValidation(String fName, String lName, String phoneNumber, String email,String password){
         boolean validation= true;
         if(TextUtils.isEmpty(fName)){
             validation = false;
@@ -85,6 +86,9 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
         }else if(TextUtils.isEmpty(email)) {
             validation = false;
             getView().showErrorMessage(4);
+        }else if(TextUtils.isEmpty(password)){
+            validation = false;
+            getView().showErrorMessage(5);
         }
         return validation;
     }
@@ -120,14 +124,21 @@ public class SignUpPresneterImpl extends MvpBasePresenter<SignUpView> implements
 
     private HashMap<String,String> getParams(){
         HashMap<String ,String > params = new HashMap<>();
-        params.put("username",mFName);
-        params.put("password",mLName);
-        params.put("adress","");
-        params.put("adress","");
-        params.put("mobilenumber",mPhoneNumber);
-        params.put("landmark","");
-        params.put("Name","rajesh");
+//        params.put("username",mFName);
+//        params.put("password",password);
+//        params.put("adress","");
+//        params.put("mobilenumber",mPhoneNumber);
+//        params.put("landmark","");
+//        params.put("Name","rajesh");
         params.put("action",APIS.SIGNUP);
+
+        params.put("Email",mEmail);
+        params.put("password",password);
+        params.put("adress","fff");
+        params.put("mobilenumber",mPhoneNumber);
+        params.put("landmark","sada");
+        params.put("FirstName",mFName);
+        params.put("LastName",mLName);
         return params;
     }
 

@@ -139,7 +139,7 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
 //                                Toast.makeText(DashboardActivity.this,"Under constuction",Toast.LENGTH_LONG).show();
                                 FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
                                 selectedFragment = FoodBeverageFragment.newInstance(1,0);
-                                transaction2.replace(R.id.frame_layout, selectedFragment);
+                                transaction2.replace(R.id.frame_layout, new OrderFragment());
                                 transaction2.addToBackStack("foodFragment");
                                 transaction2.commit();
                                 break;
@@ -221,5 +221,20 @@ public class DashboardActivity extends BaseActivity implements DialogManage,Load
     @Override
     public void callNavigationDrawer() {
         navigationListProcess();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if(BookingFragment.count>0){
+            BookingFragment.count=0;
+            FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//        selectedFragment = BookFragment.newInstance();
+            transaction1.replace(R.id.frame_layout,  new BookingFragment());
+            transaction1.addToBackStack(null);
+            transaction1.commit();
+        }else {
+            finish();
+        }
     }
 }

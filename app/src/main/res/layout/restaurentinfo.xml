@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/imgLocation"
+                    android:layout_toRightOf="@+id/imgback"
                     android:text="Alkhalleej"
                     android:textColor="@color/black"
                     style="@style/TextStyleLarge.Bold.gray"/>

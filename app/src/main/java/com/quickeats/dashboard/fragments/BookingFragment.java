@@ -58,6 +58,7 @@ public class BookingFragment extends Fragment implements CallbackService {
     ArrayList<String> city_items = new ArrayList<>();
     ArrayList<String> al_city_id = new ArrayList<>();
     String city_id="1";
+    public static int count=0;
 
     @Nullable
     @Override
@@ -110,7 +111,7 @@ public class BookingFragment extends Fragment implements CallbackService {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 city_id = al_city_id.get(position);
                 Log.e("City id is ","<><><"+city_id);
-
+                count++;
                 relsearching.setVisibility(View.GONE);
                 ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
                 txtlocation.setText(city_items.get(position));

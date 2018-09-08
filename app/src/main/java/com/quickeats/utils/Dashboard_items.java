@@ -16,7 +16,7 @@ public class Dashboard_items {
 
     protected  String[] titles;
     ArrayList<HashMap<String ,Object >> data = new ArrayList<>();
-    Integer mhomeIcons[] = {R.drawable.details,R.drawable.locationblack,R.drawable.paymentoptions,R.drawable.foodorderblack,R.drawable.sharedark,R.drawable.favirates,R.drawable.support};
+    Integer mhomeIcons[] = {R.drawable.details,R.drawable.locationblack,R.drawable.paymentoptions,R.drawable.foodorderblack,R.drawable.sharedark,R.drawable.favirates,R.drawable.support,R.drawable.logout};
     public Dashboard_items(Context context, String coming_from){
 //        if(null!=((String ) StoredDB.getInstance(context).getStorageValue("id"))) {
 //            if (((String) StoredDB.getInstance(context).getStorageValue("id")).length() != 0) {

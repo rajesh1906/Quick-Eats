@@ -23,6 +23,8 @@ public class SignUpActivity extends MvpBaseActivity<SignUpPresenter,SignupCompon
     EditText edt_phone;
     @BindView(R.id.edt_email)
     EditText edt_email;
+    @BindView(R.id.edt_password)
+    EditText edt_password;
     @Override
     public int getLayout() {
         return R.layout.activity_signup;
@@ -38,7 +40,8 @@ public class SignUpActivity extends MvpBaseActivity<SignUpPresenter,SignupCompon
         String lastName = lName.getText().toString();
         String phoneNumeber = edt_phone.getText().toString();
         String email = edt_email.getText().toString();
-       getPresenter().handleSignUpRequest(firstName,lastName,phoneNumeber,email);
+        String password = edt_password.getText().toString();
+       getPresenter().handleSignUpRequest(firstName,lastName,phoneNumeber,email,password);
 
     }
     @OnClick(R.id.txtsignin)

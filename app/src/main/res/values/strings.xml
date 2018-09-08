@@ -85,6 +85,7 @@
         <item>Refer a Friend</item>
         <item>Favorites</item>
         <item>Help</item>
+        <item>Logout</item>
     </string-array>
 
 
@@ -142,4 +143,7 @@
     </string-array>
     <string name="nav_example1">Section with Header</string>
     <string name="invalidcreadentials">Invalid Username/Password</string>
+    <string name="dialog_positive_btn">Ok</string>
+    <string name="dialog_negitive_btn">Cancel</string>
+    <string name="signoutcontext">Are you sure want to exit?</string>
 </resources>

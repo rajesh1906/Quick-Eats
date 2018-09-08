@@ -79,6 +79,9 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
         super.onCreateView(inflater, container, savedInstanceState);
         mView = inflater.inflate(R.layout.commonrecyclerview, container, false);
         ButterKnife.bind(this, mView);
+//        resid = getArguments().getInt("resid");
+//        menuid = getArguments().getInt("menuid");
+//        callAPI();
         mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return mView;
@@ -226,7 +229,7 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
         for (Map.Entry<String, List<String>> entry : display_data.entrySet()) {
             String key = entry.getKey();
 //             = entry.getValue();
-            Log.e("keys is ", "<><" + key);
+//            Log.e("keys is ", "<><" + key);
             keynames.add(key);
             // do something with key and/or tab
         }

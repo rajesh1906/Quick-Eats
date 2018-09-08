@@ -28,8 +28,10 @@ import com.quickeats.NavigationItems.MyOrdersActivity;
 import com.quickeats.NavigationItems.PaymentOptionsActivity;
 import com.quickeats.NavigationItems.ReferFriendActivity;
 import com.quickeats.NavigationItems.SavedAddressActivity;
+import com.quickeats.activities.signin.SignInActivity;
 import com.quickeats.customviews.CustomDrawerLayout;
 import com.quickeats.customviews.ItemAdapter;
+import com.quickeats.shared.CusomeDialog;
 import com.quickeats.utils.Dashboard_items;
 
 public abstract class BaseActivity extends MvpBaseActivity {
@@ -126,6 +128,9 @@ public abstract class BaseActivity extends MvpBaseActivity {
                         break;
                     case 6:
                         startActivity(new Intent(BaseActivity.this, HelpActivity.class));
+                        break;
+                    case 7:
+                        new CusomeDialog().createDialog(BaseActivity.this);
                         break;
                 }
                 navigationListProcess();
