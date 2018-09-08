@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
     <ImageView
         android:id="@+id/imgres"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
+
         android:background="@drawable/restaurent"/>
     <LinearLayout
+        android:id="@+id/ll_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_toRightOf="@+id/imgres"
         android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btnadd"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp">
         <TextView
             android:id="@+id/txt_item_name"
@@ -23,7 +29,7 @@
         <TextView
             android:id="@+id/txt_submenu_name"
            style="@style/TextStyleLarge.Regular.gray"
-            android:text="All Day Breakfast"
+            android:text="All Day jksfdjksdfjsdfsdjkfsdfsdfkjsdjkfjskddfjkshdffkhsfhjsdhdfskjdfhkjsdfhfjsdfsdjdfsjkdfjksdhfsjdkfhjksdfhjksdhfsjdkfhjskdfhjsdfhjksdfsjdkfhsdjfhsdfhjsfdjsdfjshfdkjsdbhsdfbsbdfkjsfdsfdhsfdjsfjfsdfjshdfjhsfjkhsdkjjhsdjfhskfdjhkjfdshsfhsjdkhf"
             android:textSize="11sp"/>
         <TextView
             android:id="@+id/txt_price"
@@ -106,6 +112,8 @@
         android:layerType="software"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ll_text"
+        />
 
 </RelativeLayout>
