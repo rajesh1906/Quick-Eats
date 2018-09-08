@@ -141,4 +141,5 @@
         <item>Kirk Sim</item>
     </string-array>
     <string name="nav_example1">Section with Header</string>
+    <string name="invalidcreadentials">Invalid Username/Password</string>
 </resources>

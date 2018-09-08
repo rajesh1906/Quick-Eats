@@ -16,6 +16,8 @@ import com.quickeats.shared.CallbackService;
 import com.quickeats.shared.NetworkModule;
 import com.quickeats.utils.CommonValidations;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 import javax.inject.Inject;
@@ -100,7 +102,17 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
 
     @Override
     public void callBackActivity(String response) {
-        startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
-        finish();
+        try{
+            JSONObject jsonObject = new JSONObject(response);
+            if(jsonObject.getString("Message").equalsIgnoreCase("Matched Successfully")){
+                startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+                finish();
+            }else{
+                showToastMessage(getResources().getString(R.string.invalidcreadentials));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

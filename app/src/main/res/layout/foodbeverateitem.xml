@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:layout_toRightOf="@+id/imgres"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/btnadd"
+        android:layout_toLeftOf="@+id/relbuttons"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp">
@@ -36,73 +36,81 @@
            style="@style/TextStyleLarge.Regular.gray"
             android:text="5.00"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/btnadd"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="ADD"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="@drawable/border"
-        android:visibility="visible"
-        android:layout_marginRight="20dp"/>
-
-    <LinearLayout
-        android:id="@+id/llcontrol"
+    <RelativeLayout
+        android:id="@+id/relbuttons"
         android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:weightSum="3"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
-        android:background="@drawable/border">
-
-        <TextView
-            android:id="@+id/txt_minus"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:textColor="@color/gray"
-            android:layout_centerVertical="true"
-            android:text="-"
-            android:layout_weight="0.5"
-            android:paddingRight="10dp"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/txt_value"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:paddingTop="4dp"
-            android:layout_weight="2.5"
-            android:layout_marginTop="1dp"
-            android:gravity="center"
-            android:layout_marginBottom="1dp"
-            android:text="1"
-            android:textSize="18sp"
-            style="@style/TextStyleLarge.Regular.gray"/>
-
-        <TextView
-            android:id="@+id/txt_pluse"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        android:layout_centerVertical="true">
+        <Button
+            android:id="@+id/btnadd"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:paddingLeft="10dp"
-            android:layout_weight="0.5"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/gray"
-            android:paddingRight="10dp"
-            android:text="+"
-            android:textSize="22sp" />
-    </LinearLayout>
+            android:text="ADD"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/border"
+            android:visibility="visible"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/llcontrol"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:weightSum="3"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/txt_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:textColor="@color/gray"
+                android:layout_centerVertical="true"
+                android:text="-"
+                android:layout_weight="0.5"
+                android:paddingRight="10dp"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txt_value"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:paddingTop="4dp"
+                android:layout_weight="2.5"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:layout_marginBottom="1dp"
+                android:text="1"
+                android:textSize="18sp"
+                style="@style/TextStyleLarge.Regular.gray"/>
+
+            <TextView
+                android:id="@+id/txt_pluse"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:paddingRight="10dp"
+                android:text="+"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
 
 
     <ImageView

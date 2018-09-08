@@ -316,7 +316,6 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
             Picasso.with(getActivity())
                     .load(additional_data.get(title).get(position).get("ItemUrl"))
                     .into(itemHolder.img_src);
-//            itemHolder.img_src.setImageResource(R.drawable.restaurent);
 
 //            itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
 //                @Override
