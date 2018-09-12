@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.quickeats.Network.ConnectNetwork;
+import com.quickeats.activities.dashboard.DBActivity;
 import com.quickeats.di.AuthenticateComponent;
 import com.quickeats.MvpBaseActivity;
 import com.quickeats.R;
@@ -105,7 +106,8 @@ public class SignInActivity extends MvpBaseActivity<SigninPresenter, Authenticat
         try{
             JSONObject jsonObject = new JSONObject(response);
             if(jsonObject.getString("Message").equalsIgnoreCase("Matched Successfully")){
-                startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+//                startActivity(new Intent(SignInActivity.this, DashboardActivity.class));
+                startActivity(new Intent(SignInActivity.this, DBActivity.class));
                 finish();
             }else{
                 showToastMessage(getResources().getString(R.string.invalidcreadentials));

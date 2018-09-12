@@ -11,10 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.quickeats.R;
-import com.quickeats.dashboard.fragments.BookFragment;
-import com.quickeats.dashboard.fragments.EatsInFragment;
+import com.quickeats.dashboard.fragments.booking.EatsInFragment;
 import com.quickeats.dashboard.fragments.model.RestaurantData;
-import com.quickeats.restaurantdetail.LoadFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

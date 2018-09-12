@@ -1,4 +1,4 @@
-package com.quickeats.dashboard.fragments;
+package com.quickeats.dashboard.fragments.booking;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,11 +24,11 @@ import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
 import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
-import com.quickeats.activities.signin.SigninPresenter;
-import com.quickeats.dashboard.DashboardActivity;
+import com.quickeats.activities.dashboard.DBActivity;
 import com.quickeats.dashboard.MenuCallback;
-import com.quickeats.dashboard.fragments.booking.EatsInFragment;
+import com.quickeats.dashboard.fragments.Collections;
 import com.quickeats.dashboard.model.Cities;
+import com.quickeats.restaurantdetail.FoodBeverageFragment;
 import com.quickeats.shared.CallbackService;
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class BookingFragment extends Fragment implements CallbackService {
         mView = inflater.inflate(R.layout.bookingfragment,container,false);
         ButterKnife.bind(this,mView);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.container, EatsInFragment.newInstance("8"));
+        ft.replace(R.id.container,EatsInFragment.newInstance("8"));
         ft.commit();
         return mView;
     }
@@ -95,7 +95,7 @@ public class BookingFragment extends Fragment implements CallbackService {
 
 
     public void menuClick(){
-        MenuCallback callback = (MenuCallback) DashboardActivity.instance;
+        MenuCallback callback = (MenuCallback) DBActivity.instance;
         callback.callNavigationDrawer();
     }
 
@@ -114,7 +114,7 @@ public class BookingFragment extends Fragment implements CallbackService {
                 Log.e("City id is ","<><><"+city_id);
                 count++;
                 relsearching.setVisibility(View.GONE);
-                ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
+//                ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
                 txtlocation.setText(city_items.get(position));
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.container,EatsInFragment.newInstance(city_id));
@@ -127,7 +127,7 @@ public class BookingFragment extends Fragment implements CallbackService {
     void enableSearching(){
         relsearching.setVisibility(View.VISIBLE);
         edtSearch.requestFocus();
-        ((DashboardActivity)getActivity()).openKeyboard(edtSearch);
+//        ((DashboardActivity)getActivity()).openKeyboard(edtSearch);
 
     }
     @OnClick(R.id.relmain)
@@ -137,7 +137,7 @@ public class BookingFragment extends Fragment implements CallbackService {
     @OnClick(R.id.imgback)
     void searchBackImpl(){
         relsearching.setVisibility(View.GONE);
-        ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
+//        ((DashboardActivity)getActivity()).hideKeyboard(edtSearch);
     }
     @OnClick(R.id.img_delete)
     void searchDeleteImpl(){

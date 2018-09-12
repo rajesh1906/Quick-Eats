@@ -78,11 +78,11 @@ public abstract class BaseActivity extends MvpBaseActivity {
             }
 
         };
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.lay_activity_base);
-        LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        DrawerLayout childAt = (DrawerLayout) layout.getChildAt(0);
-        childAt.addView(inflater.inflate(getLayoutResourceId(), null), 0);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.lay_activity_base);
+//        LayoutInflater inflater = (LayoutInflater)
+//                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        DrawerLayout childAt = (DrawerLayout) layout.getChildAt(0);
+//        childAt.addView(inflater.inflate(getLayoutResourceId(), null), 0);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);

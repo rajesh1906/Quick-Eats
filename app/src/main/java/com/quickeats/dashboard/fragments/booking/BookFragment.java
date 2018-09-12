@@ -1,25 +1,19 @@
-package com.quickeats.dashboard.fragments;
+package com.quickeats.dashboard.fragments.booking;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 
 import com.quickeats.R;
-import com.quickeats.dashboard.DashboardActivity;
+import com.quickeats.activities.dashboard.DBActivity;
 import com.quickeats.dashboard.MenuCallback;
-import com.quickeats.dashboard.fragments.booking.EatsInFragment;
+import com.quickeats.dashboard.fragments.Collections;
 import com.quickeats.utils.ViewPagerAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +51,7 @@ public class BookFragment extends Fragment {
     }
     @OnClick(R.id.imgmenu)
     public void menuClick(){
-        MenuCallback callback = (MenuCallback) DashboardActivity.instance;
+        MenuCallback callback = (MenuCallback) DBActivity.instance;
         callback.callNavigationDrawer();
     }
 
@@ -74,7 +68,7 @@ public class BookFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        adapter.addFragment(EatsInFragment.newInstance("8"), "EAT IN");
+        adapter.addFragment(new Collections(), "EAT IN");
         adapter.addFragment(new Collections(), "COLLECTION");
         viewPager.setAdapter(adapter);
     }

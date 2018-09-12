@@ -72,6 +72,8 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+        <activity android:name=".activities.dashboard.DBActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".NavigationItems.AddPaymentOptions"
             android:screenOrientation="portrait"/>
         <activity android:name=".NavigationItems.OrderHistory"
