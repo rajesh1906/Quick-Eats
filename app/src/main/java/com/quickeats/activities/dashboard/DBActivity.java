@@ -41,11 +41,12 @@ import com.quickeats.dashboard.fragments.booking.BookFragment;
 import com.quickeats.dashboard.fragments.booking.BookingFragment;
 import com.quickeats.di.DBComponet;
 import com.quickeats.restaurantdetail.FoodBeverageFragment;
+import com.quickeats.restaurantdetail.LoadFragment;
 import com.quickeats.utils.Dashboard_items;
 
 import butterknife.BindView;
 
-public class DBActivity extends MvpBaseActivity<DBPresenter, DBComponet> implements DBView,MenuCallback {
+public class DBActivity extends MvpBaseActivity<DBPresenter, DBComponet> implements DBView,MenuCallback,LoadFragment.UpdateItem {
     @BindView(R.id.navigation)
     BottomNavigationView mbottomNavigationView;
     BottomSheetDialog mBottomSheetDialog;
@@ -343,5 +344,10 @@ public class DBActivity extends MvpBaseActivity<DBPresenter, DBComponet> impleme
         framework.setVisibility(View.VISIBLE);
 //        navigationListProcess();
         mDrawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public void getItem() {
+        mBottomSheetDialog.show();
     }
 }
