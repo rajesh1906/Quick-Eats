@@ -1,5 +1,6 @@
 package com.quickeats.di;
 
+import com.quickeats.activities.cart.CartModule;
 import com.quickeats.activities.dashboard.DBModule;
 import com.quickeats.activities.forgotpassword.ForgotPasswordModule;
 import com.quickeats.activities.signin.SignAppModule;
@@ -17,5 +18,6 @@ public interface QuickEatComponent {
     SignupComponent plus(SignUpModule signUpModule);
     ForgotPasswordComponet plus(ForgotPasswordModule forgotPasswordModule);
     DBComponet plus(DBModule dbModule);
+    CartComponent plus(CartModule cartModule);
 //    AuthenticateComponent plus(SignUpModule signUpModule);
 }

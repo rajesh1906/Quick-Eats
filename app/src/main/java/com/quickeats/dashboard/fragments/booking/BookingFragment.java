@@ -1,5 +1,6 @@
 package com.quickeats.dashboard.fragments.booking;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
 import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
+import com.quickeats.activities.cart.CartActvity;
 import com.quickeats.activities.dashboard.DBActivity;
 import com.quickeats.dashboard.MenuCallback;
 import com.quickeats.dashboard.fragments.Collections;
@@ -72,6 +74,11 @@ public class BookingFragment extends Fragment implements CallbackService {
         ft.replace(R.id.container,EatsInFragment.newInstance("8"));
         ft.commit();
         return mView;
+    }
+
+    @OnClick(R.id.imgcart)
+    void lauchCart(){
+        startActivity(new Intent(getActivity(), CartActvity.class));
     }
 
     @OnClick(R.id.releatin)
