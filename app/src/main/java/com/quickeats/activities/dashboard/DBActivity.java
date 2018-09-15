@@ -350,4 +350,18 @@ public class DBActivity extends MvpBaseActivity<DBPresenter, DBComponet> impleme
     public void getItem() {
         mBottomSheetDialog.show();
     }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if(com.quickeats.dashboard.fragments.BookingFragment.count>0){
+            com.quickeats.dashboard.fragments.BookingFragment.count=0;
+            FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+//        selectedFragment = BookFragment.newInstance();
+            transaction1.replace(R.id.frame_layout,  new com.quickeats.dashboard.fragments.BookingFragment());
+            transaction1.addToBackStack(null);
+            transaction1.commit();
+        }else {
+            finish();
+        }    }
 }
