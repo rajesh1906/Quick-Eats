@@ -1,5 +1,7 @@
 package com.quickeats.activities.cart;
 
+import com.quickeats.Network.ConnectNetwork;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -11,7 +13,7 @@ import dagger.Provides;
 public class CartModule {
 
     @Provides
-    CartPresenter getCart(){
-        return new CartPresenterImpl();
+    CartPresenter getCart(ConnectNetwork connectNetwork){
+        return new CartPresenterImpl(connectNetwork);
     }
 }

@@ -146,4 +146,13 @@
     <string name="dialog_positive_btn">Ok</string>
     <string name="dialog_negitive_btn">Cancel</string>
     <string name="signoutcontext">Are you sure want to exit?</string>
+    <string name="no_items_found">No Items Found</string>
+
+    <string-array name="payment_type">
+        <item>Cash on delivery</item>
+        <item>pay from Paypal</item>
+        <item>pay from Paytm</item>
+        <item> pay from Brain Tree</item>
+    </string-array>
+
 </resources>
