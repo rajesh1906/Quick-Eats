@@ -14,6 +14,7 @@ package com.quickeats.Network;
     public static String MENU_DETAILS = "GettingMenudetailsAug";
     public static String MENU_ITEMS = "AllItemsLoading";
     public static String GETCART_DETAILS ="GettingCartdetailsdata";
+    public static String ADD_TO_CART = "Cartdataadding";
 
 
 }

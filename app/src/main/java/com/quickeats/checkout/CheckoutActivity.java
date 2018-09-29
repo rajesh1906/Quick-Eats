@@ -15,6 +15,7 @@ import java.lang.reflect.Array;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Rajesh kumar on 30-06-2018.
@@ -89,6 +90,11 @@ public class CheckoutActivity extends MvpBaseActivity{
         }
 
 
+    }
+
+    @OnClick(R.id.ll_back)
+    void backButtonImpl(){
+        finish();
     }
 
     @Override

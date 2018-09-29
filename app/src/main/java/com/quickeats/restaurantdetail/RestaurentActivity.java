@@ -31,6 +31,8 @@ import com.quickeats.restaurantdetail.model.Menudetail;
 import com.quickeats.restaurantinfo.RestaurentInfo;
 import com.quickeats.utils.ViewPagerAdapter;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,6 +57,7 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     TextView txtnumberitems;
     BottomSheetDialog mBottomSheetDialog;
     int res_id;
+    private String  item_id;
     @Override
     public int getLayout() {
         return R.layout.restaurentdetailfragment;
@@ -74,7 +77,7 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
 
          res_id = getIntent().getExtras().getInt("restaurant_id");
         Log.e("res_id","<><>"+res_id);
-        callApi();
+        callApi("menu");
 
 
     }
@@ -134,9 +137,12 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
 
 
     @Override
-    public void getItemPosition(int position) {
+    public void getItemPosition(int position,String item_id) {
         lladdeditems.setVisibility(View.VISIBLE);
         txtnumberitems.setText(position + " Items Added");
+        this.item_id = item_id;
+        //adding to cart
+        callApi("add to cart");
 //        Toast.makeText(this,"Item Position"+position,Toast.LENGTH_LONG).show();
     }
 
@@ -166,17 +172,31 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     }
 
 
-    private void callApi(){
-        RetrofitClient.getInstance().getEndPoint(this,"Show").getResult(getParams(), new APIResponse() {
+    private void callApi(String coming_from){
+        RetrofitClient.getInstance().getEndPoint(this,"Show").getResult(getParams(coming_from), new APIResponse() {
             @Override
             public void onSuccess(String res) {
                 Log.e("success","<><>"+res);
-                MenuItemsRoot root = new Gson().fromJson(res,MenuItemsRoot.class);
-                if(root.getStatus().equalsIgnoreCase("successfully")){
-                    setupViewPager(mViewPager,root.getMenudetails());
-                    tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
-                    tabs.setupWithViewPager(mViewPager);
-                    implementBottomSheet();
+                if(coming_from.equals("menu")) {
+                    MenuItemsRoot root = new Gson().fromJson(res, MenuItemsRoot.class);
+                    if (root.getStatus().equalsIgnoreCase("successfully")) {
+                        setupViewPager(mViewPager, root.getMenudetails());
+                        tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+                        tabs.setupWithViewPager(mViewPager);
+                        implementBottomSheet();
+                    }
+                }else{
+                    try{
+                        JSONObject jsonObject = new JSONObject(res);
+                        if (!jsonObject.getBoolean("error")){
+                            Toast.makeText(RestaurentActivity.this,"Item added successfully ",Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(RestaurentActivity.this,"Somthing went wrong ",Toast.LENGTH_LONG).show();
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                 }
             }
 
@@ -189,10 +209,16 @@ public class RestaurentActivity extends MvpBaseActivity implements ImplItems {
     }
 
 
-    private HashMap<String,String > getParams(){
+    private HashMap<String,String > getParams(String comingfrom){
         HashMap<String,String > params= new HashMap<>();
-        params.put("RestaurantId",""+res_id);
-        params.put("action", APIS.MENU_DETAILS);
+        if(comingfrom.equals("menu")) {
+            params.put("RestaurantId", "" + res_id);
+            params.put("action", APIS.MENU_DETAILS);
+        }else if(comingfrom.equals("add to cart")){
+            params.put("loginid","1");
+            params.put("itemid",item_id);
+            params.put("action",APIS.ADD_TO_CART);
+        }
         return params;
 
     }

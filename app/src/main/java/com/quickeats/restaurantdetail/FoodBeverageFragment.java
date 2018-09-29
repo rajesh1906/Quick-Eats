@@ -12,21 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.quickeats.Network.APIResponse;
 import com.quickeats.Network.APIS;
 import com.quickeats.Network.RetrofitClient;
 import com.quickeats.R;
-import com.quickeats.dashboard.adapter.RestaurentAdapter;
-import com.quickeats.restaurantdetail.adapter.FoodBeverageAdapter;
 import com.quickeats.restaurantdetail.model.AllItems_Pojo;
 import com.quickeats.restaurantdetail.model.ItemsData;
 import com.quickeats.restaurantdetail.model.MenuItemsDetailRoot;
-import com.quickeats.restaurantdetail.model.SampleResponse;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -99,9 +94,9 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
     }
 
     @Override
-    public void getItemPosition(int position) {
+    public void getItemPosition(int position,String item) {
         LoadFragment.ImplItems implItems = (LoadFragment.ImplItems) RestaurentActivity.instance;
-        implItems.getItemPosition(position);
+        implItems.getItemPosition(position,item);
     }
 
     private void callAPI(){
@@ -247,6 +242,8 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
     }
 
 
+
+
     private class HeaderViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvTitle;
@@ -337,7 +334,7 @@ public class FoodBeverageFragment extends Fragment implements LoadFragment.ImplI
                     itemHolder.btnadd.setVisibility(View.GONE);
                     itemHolder.llcontrol.setVisibility(View.VISIBLE);
                     LoadFragment.ImplItems implItems = (LoadFragment.ImplItems) RestaurentActivity.instance;
-                    implItems.getItemPosition(mCount);
+                    implItems.getItemPosition(mCount,additional_data.get(title).get(position).get("Item_Id"));
                 }
             });
         }

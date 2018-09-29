@@ -3,6 +3,7 @@ package com.quickeats.restaurantdetail.adapter;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,8 +82,9 @@ public class FoodBeverageAdapter extends RecyclerView.Adapter<FoodBeverageAdapte
                  mCount++;
                 holder.btnadd.setVisibility(View.GONE);
                 holder.llcontrol.setVisibility(View.VISIBLE);
+                Log.e("item id is ","<><>"+data.get(position).getItem_Id());
                 LoadFragment.ImplItems implItems = (LoadFragment.ImplItems)fragment;
-                implItems.getItemPosition(mCount);
+                implItems.getItemPosition(mCount,data.get(position).getItem_Id());
             }
         });
     }
